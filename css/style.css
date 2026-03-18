@@ -2,8 +2,8 @@
 
 /* ═══════════════════════════════════════════════════
    BAWADI MEDITERRANEAN GRILL — Design System
-   Palestinian-inspired: black, white, green, crimson-red
-   with aged gold warmth and tatreez/keffiyeh accents
+   Pure Palestinian flag palette: black, white, green, red
+   No gold/yellow — clean and true to the flag
    ═══════════════════════════════════════════════════ */
 
 :root {
@@ -14,14 +14,14 @@
   --pal-red:      #CE1126;
   --pal-red-dk:   #A50D1E;
   --white:        #FFFFFF;
-  --cream:        #FAF7F0;
-  --cream-dk:     #F0E8D5;
-  --gold:         #C8971A;
-  --gold-lt:      #E5B84A;
-  --walnut:       #2A1A0E;
-  --text-dark:    #1A1008;
-  --text-mid:     #4A3020;
-  --text-muted:   #7A6050;
+  --cream:        #F7F9F7;
+  --cream-dk:     #E8F0EA;
+  --gold:         #007A3D;   /* remapped → green (no more yellow) */
+  --gold-lt:      #FFFFFF;   /* remapped → white on dark backgrounds */
+  --walnut:       #111811;
+  --text-dark:    #0A140A;
+  --text-mid:     #2A3D2A;
+  --text-muted:   #5A6E5A;
 
   --nav-h: 70px;
   --max-w: 1180px;
@@ -61,12 +61,15 @@ p { font-size: 1rem; color: var(--text-mid); }
 .tatreez-stripe {
   height: 10px;
   background: repeating-linear-gradient(90deg,
-    var(--pal-red) 0px, var(--pal-red) 12px,
-    var(--pal-green) 12px, var(--pal-green) 24px,
-    var(--black) 24px, var(--black) 32px,
-    var(--pal-green) 32px, var(--pal-green) 44px,
-    var(--pal-red) 44px, var(--pal-red) 56px,
-    var(--gold) 56px, var(--gold) 68px
+    var(--pal-red) 0px, var(--pal-red) 16px,
+    var(--black) 16px, var(--black) 24px,
+    var(--white) 24px, var(--white) 32px,
+    var(--black) 32px, var(--black) 40px,
+    var(--pal-green) 40px, var(--pal-green) 56px,
+    var(--black) 56px, var(--black) 64px,
+    var(--white) 64px, var(--white) 72px,
+    var(--black) 72px, var(--black) 80px,
+    var(--pal-red) 80px, var(--pal-red) 96px
   );
 }
 
@@ -91,8 +94,8 @@ p { font-size: 1rem; color: var(--text-mid); }
 .btn-green:hover { background: var(--pal-green-dk); transform: translateY(-2px); box-shadow: var(--shadow-md); }
 .btn-outline { background: transparent; color: var(--pal-red); border-color: var(--pal-red); }
 .btn-outline:hover { background: var(--pal-red); color: var(--white); transform: translateY(-2px); }
-.btn-gold { background: var(--gold); color: var(--white); border-color: var(--gold); }
-.btn-gold:hover { background: #a67c12; transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn-gold { background: var(--pal-green); color: var(--white); border-color: var(--pal-green); }
+.btn-gold:hover { background: var(--pal-green-dk); transform: translateY(-2px); box-shadow: var(--shadow-md); }
 .btn-dark { background: var(--black); color: var(--white); border-color: var(--black); }
 .btn-dark:hover { background: #222; transform: translateY(-2px); }
 
@@ -131,8 +134,8 @@ p { font-size: 1rem; color: var(--text-mid); }
 .nav-btn-pickup:hover { background: var(--pal-red-dk); }
 .nav-btn-delivery { background: var(--pal-green); color: var(--white); border-color: var(--pal-green); }
 .nav-btn-delivery:hover { background: var(--pal-green-dk); }
-.nav-btn-halal { background: transparent; color: var(--gold-lt); border-color: var(--gold); }
-.nav-btn-halal:hover { background: var(--gold); color: var(--black); }
+.nav-btn-halal { background: transparent; color: var(--white); border-color: rgba(255,255,255,.5); }
+.nav-btn-halal:hover { background: rgba(255,255,255,.12); border-color: var(--white); }
 .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: .5rem; }
 .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
 .nav-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }

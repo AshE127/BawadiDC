@@ -5,7 +5,7 @@
 <nav class="nav" id="main-nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img src="https://bawadidc.com/wp-content/uploads/2019/11/New-Bawadi-logo-for-menu-184x69.jpg" alt="Bawadi Mediterranean Grill" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <img src="images/bawadi-logo.png" alt="Bawadi Mediterranean Grill" style="height:48px;width:auto;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <div class="nav-logo-text" style="display:none">Bawadi<span>Mediterranean Grill</span></div>
     </a>
     <div class="nav-links">
@@ -16,9 +16,7 @@
       <a href="catering.html">Catering</a>
     </div>
     <div class="nav-order-btns">
-      <a href="https://www.toasttab.com/bawadi-mediterranean-grill/v2/online-order#!/" target="_blank" rel="noopener" class="nav-btn-pickup">Order Pickup</a>
-      <a href="https://www.toasttab.com/bawadi-mediterranean-grill/v2/online-order#!/" target="_blank" rel="noopener" class="nav-btn-delivery">Delivery</a>
-      <a href="https://www.halal.delivery/order/restaurant/bawadi-mediterranean-grill--menu/3" target="_blank" rel="noopener" class="nav-btn-halal">Halal Delivery</a>
+      <a href="https://order.toasttab.com/online/bawadi-mediterranean-grill#!/" target="_blank" rel="noopener" class="nav-btn-pickup">Order Online</a>
     </div>
     <button class="nav-hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -32,9 +30,7 @@
   <a href="buffet.html">Buffet</a>
   <a href="catering.html">Catering</a>
   <div class="mobile-order-btns">
-    <a href="https://www.toasttab.com/bawadi-mediterranean-grill/v2/online-order#!/" target="_blank" rel="noopener" class="mob-btn-pickup">&#x1F6D2; Order Pickup</a>
-    <a href="https://www.toasttab.com/bawadi-mediterranean-grill/v2/online-order#!/" target="_blank" rel="noopener" class="mob-btn-delivery">&#x1F6F5; Bawadi Delivery</a>
-    <a href="https://www.halal.delivery/order/restaurant/bawadi-mediterranean-grill--menu/3" target="_blank" rel="noopener" class="mob-btn-halal">&#x2605; Halal Delivery</a>
+    <a href="https://order.toasttab.com/online/bawadi-mediterranean-grill#!/" target="_blank" rel="noopener" class="mob-btn-pickup">🛒 Order Online</a>
   </div>
 </div>`;
 
@@ -64,10 +60,10 @@
       <div>
         <h4>Order Online</h4>
         <div class="footer-links">
-          <a href="https://www.toasttab.com/bawadi-mediterranean-grill/v2/online-order#!/" target="_blank" rel="noopener">Order Pickup (Toast)</a>
-          <a href="https://www.toasttab.com/bawadi-mediterranean-grill/v2/online-order#!/" target="_blank" rel="noopener">Bawadi Delivery</a>
-          <a href="https://www.halal.delivery/order/restaurant/bawadi-mediterranean-grill--menu/3" target="_blank" rel="noopener">Halal Delivery</a>
-          <a href="https://www.toasttab.com/catering/bawadi-mediterranean-grill" target="_blank" rel="noopener">Catering Order (Toast)</a>
+          <a href="https://order.toasttab.com/online/bawadi-mediterranean-grill#!/" target="_blank" rel="noopener">Order Pickup (Toast)</a>
+          <a href="https://order.toasttab.com/online/bawadi-mediterranean-grill#!/" target="_blank" rel="noopener">Bawadi Delivery</a>
+          <a href="https://order.toasttab.com/online/bawadi-mediterranean-grill#!/" target="_blank" rel="noopener">Halal Delivery</a>
+          <a href="https://order.toasttab.com/online/bawadi-mediterranean-grill#!/" target="_blank" rel="noopener">Catering Order (Toast)</a>
         </div>
       </div>
       <div>
