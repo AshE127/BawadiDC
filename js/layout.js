@@ -42,15 +42,15 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <h4>Bawadi Mediterranean Grill</h4>
-        <p>Authentic Mediterranean &amp; Palestinian cuisine, served with love and tradition since 2018. Fully Halal.</p>
+        <h4><span style="color:#CE1126;">Bawadi</span> Mediterranean Grill</h4>
+        <p>Authentic Palestinian cuisine, served with love and tradition since 2018. <span style="color:#1A9A52;font-weight:600;">100% Halal.</span></p>
         <div class="footer-social">
           <a href="https://www.facebook.com/Bawadimediterraneangrillandsweetscafe/" target="_blank" rel="noopener" title="Facebook">&#x1F426;</a>
           <a href="https://www.yelp.com/biz/bawadi-mediterranean-grill-falls-church-2" target="_blank" rel="noopener" title="Yelp">&#x2665;</a>
         </div>
       </div>
       <div>
-        <h4>Quick Links</h4>
+        <h4 style="color:#CE1126;">Quick Links</h4>
         <div class="footer-links">
           <a href="index.html">Home</a>
           <a href="about.html">About Us</a>
@@ -61,7 +61,7 @@
         </div>
       </div>
       <div>
-        <h4>Order Online</h4>
+        <h4 style="color:#CE1126;">Order Online</h4>
         <div class="footer-links">
           <a href="https://order.toasttab.com/online/bawadi-mediterranean-grill#!/" target="_blank" rel="noopener">Order Pickup (Toast)</a>
           <a href="https://order.toasttab.com/online/bawadi-mediterranean-grill#!/" target="_blank" rel="noopener">Bawadi Delivery</a>
@@ -70,12 +70,12 @@
         </div>
       </div>
       <div>
-        <h4>Visit Us</h4>
-        <span class="footer-col-label">Address</span>
+        <h4 style="color:#CE1126;">Visit Us</h4>
+        <span class="footer-col-label" style="color:#1A9A52;">Address</span>
         <p>6304 Leesburg Pike<br>Falls Church, VA 22044</p>
-        <span class="footer-col-label">Phone</span>
+        <span class="footer-col-label" style="color:#1A9A52;">Phone</span>
         <p><a href="tel:7038451600">(703) 845-1600</a></p>
-        <span class="footer-col-label">Hours</span>
+        <span class="footer-col-label" style="color:#1A9A52;">Hours</span>
         <p style="color:rgba(255,255,255,.4);font-size:.8rem;">⚠ Confirm with restaurant — hours vary</p>
         <p>Sun–Thu: 11am – 12am<br>Fri–Sat: 11am – 1am</p>
       </div>
