@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bawadi Mediterranean Grill news, specials, and updates — Falls Church, VA.">
+  <title>News & Specials | Bawadi Mediterranean Grill</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Facebook feed embed section */
+    .fb-section { background: var(--cream); }
+    .fb-embed-wrap {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 2rem; box-shadow: var(--shadow-sm);
+      display: flex; flex-direction: column; align-items: center;
+      min-height: 400px;
+    }
+    /* Fallback Facebook link card if embed blocked */
+    .fb-fallback {
+      text-align: center; padding: 3rem 2rem;
+    }
+    .fb-fallback-icon { font-size: 4rem; margin-bottom: 1rem; }
+    .fb-fallback h3 { margin-bottom: .75rem; }
+
+    /* Newsletter section */
+    .newsletter-section { background: var(--pal-green); }
+    .newsletter-form {
+      max-width: 540px; margin: 0 auto;
+      display: flex; gap: .75rem; flex-wrap: wrap;
+    }
+    .newsletter-form input {
+      flex: 1; min-width: 220px; padding: .9rem 1.25rem;
+      border: none; border-radius: var(--radius); font-family: var(--font-body);
+      font-size: 1rem; background: rgba(255,255,255,.15); color: var(--white);
+    }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,.6); }
+    .newsletter-form input:focus { outline: 2px solid rgba(255,255,255,.5); }
+
+    /* Owner guide section */
+    .owner-guide { background: var(--cream-dk); }
+    .guide-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 2rem; box-shadow: var(--shadow-sm); height: 100%;
+    }
+    .guide-card-header {
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;
+      padding-bottom: 1rem; border-bottom: 2px solid var(--cream-dk);
+    }
+    .guide-icon { font-size: 2rem; flex-shrink: 0; }
+    .guide-card h4 { font-size: 1.2rem; line-height: 1.2; }
+    .guide-steps { display: flex; flex-direction: column; gap: .75rem; }
+    .guide-step {
+      display: flex; gap: .75rem; align-items: flex-start;
+      font-size: .9rem; color: var(--text-mid);
+    }
+    .guide-step-num {
+      width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+      background: var(--pal-red); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem; font-weight: 700; margin-top: .05rem;
+    }
+    .guide-tag {
+      display: inline-block; font-size: .7rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; padding: .2rem .6rem; border-radius: 999px; margin-bottom: .5rem;
+    }
+    .tag-free { background: rgba(0,122,61,.12); color: var(--pal-green); }
+    .tag-easy { background: rgba(200,151,26,.12); color: var(--gold); }
+    .tag-control { background: rgba(206,17,38,.1); color: var(--pal-red); }
+
+    .specials-placeholder {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 3rem 2rem; text-align: center; box-shadow: var(--shadow-sm);
+      border: 2px dashed var(--cream-dk);
+    }
+    .specials-placeholder p { color: var(--text-muted); font-size: .9rem; }
+  </style>
+</head>
+<body>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Stay in the Loop</span>
+      <h1>News & Specials</h1>
+      <p>Daily specials, seasonal dishes, Ramadan programs, and everything new at Bawadi.</p>
+    </div>
+  </section>
+  <div class="tatreez-stripe"></div>
+
+  <!-- ═══ CURRENT SPECIALS PLACEHOLDER ═══ -->
+  <section class="section fb-section">
+    <div class="container">
+      <div class="text-center anim" style="margin-bottom:2.5rem;">
+        <span class="section-label">Right Now</span>
+        <h2>Current Specials & <em style="font-style:italic">Announcements</em></h2>
+        <div class="divider center"></div>
+        <p class="section-sub">Check our Facebook page for the latest daily specials, event announcements, and Ramadan programs.</p>
+      </div>
+
+      <!-- Facebook Page Feed embed (requires FB page plugin script) -->
+      <div class="fb-embed-wrap anim">
+        <div class="fb-fallback">
+          <div class="fb-fallback-icon">&#x1F4F0;</div>
+          <h3>Latest from Bawadi</h3>
+          <p style="color:var(--text-muted);margin-bottom:2rem;max-width:440px;margin-left:auto;margin-right:auto;">We post our daily specials, seasonal dishes, and announcements on Facebook. Follow us to never miss an update.</p>
+          <a href="https://www.facebook.com/Bawadimediterraneangrillandsweetscafe/" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:1rem;padding:1rem 2.5rem;">
+            &#x1F4AC; Follow Us on Facebook
+          </a>
+          <p style="margin-top:1.5rem;font-size:.85rem;color:var(--text-muted);">Or call us at <a href="tel:7038451600" style="color:var(--pal-green);font-weight:600;">(703) 845-1600</a> to ask about today's specials.</p>
+        </div>
+      </div>
+
+      <!-- Specials cards — client can populate these via CMS later -->
+      <div style="margin-top:3rem;">
+        <h3 style="margin-bottom:1.5rem;">This Week's Featured Dishes</h3>
+        <div class="grid-3">
+          <div class="specials-placeholder anim">
+            <div style="font-size:2rem;margin-bottom:.75rem;">🍽</div>
+            <p><strong>Monday Special</strong><br>Check Facebook or call for today's stew of the day and dinner buffet specials.</p>
+          </div>
+          <div class="specials-placeholder anim anim-delay-1">
+            <div style="font-size:2rem;margin-bottom:.75rem;">📅</div>
+            <p><strong>Weekend Special</strong><br>Whole lamb shoulder, Mansaf, Musakhan, and Maklouba available Fri–Sun.</p>
+          </div>
+          <div class="specials-placeholder anim anim-delay-2">
+            <div style="font-size:2rem;margin-bottom:.75rem;">🌙</div>
+            <p><strong>Ramadan & Iftar</strong><br>Special Iftar programs available during Ramadan. Call for details and packages.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NEWSLETTER SIGNUP ═══ -->
+  <section class="section newsletter-section">
+    <div class="container text-center anim">
+      <span class="section-label" style="color:rgba(255,255,255,.6);">Never Miss a Special</span>
+      <h2 style="color:var(--white);margin-bottom:.75rem;">Get Updates by Email</h2>
+      <p style="color:rgba(255,255,255,.7);margin-bottom:2.5rem;max-width:480px;margin-left:auto;margin-right:auto;">Sign up for our occasional newsletter — Ramadan specials, new dishes, and exclusive offers. No spam, ever.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email address">
+        <button class="btn btn-dark">Subscribe</button>
+      </div>
+      <p style="color:rgba(255,255,255,.45);font-size:.8rem;margin-top:1rem;">We respect your privacy. Unsubscribe at any time.</p>
+    </div>
+  </section>
+
+  <!-- ═══ OWNER GUIDE — how to post updates without a developer ═══ -->
+  <section class="section owner-guide">
+    <div class="container">
+      <div class="text-center anim" style="margin-bottom:3rem;">
+        <span class="section-label">For the Restaurant</span>
+        <h2>How to Post Updates <em style="font-style:italic">Yourself</em></h2>
+        <div class="divider center"></div>
+        <p class="section-sub">Three easy ways to keep your customers informed — no developer needed, no technical skills required.</p>
+      </div>
+      <div class="grid-3">
+        <!-- Option 1: Facebook -->
+        <div class="guide-card anim">
+          <div class="guide-card-header">
+            <div class="guide-icon">&#x1F4F2;</div>
+            <div>
+              <span class="guide-tag tag-free">Free</span><span class="guide-tag tag-easy" style="margin-left:.35rem;">Easiest</span>
+              <h4>Post on Facebook</h4>
+            </div>
+          </div>
+          <div class="guide-steps">
+            <div class="guide-step"><div class="guide-step-num">1</div><span>Open Facebook on your phone or computer.</span></div>
+            <div class="guide-step"><div class="guide-step-num">2</div><span>Go to your Bawadi Facebook page.</span></div>
+            <div class="guide-step"><div class="guide-step-num">3</div><span>Click "Create Post" — type your special, add a photo, and post.</span></div>
+            <div class="guide-step"><div class="guide-step-num">4</div><span>Your followers see it instantly. This site links to your page.</span></div>
+          </div>
+          <p style="font-size:.83rem;color:var(--text-muted);margin-top:1.25rem;border-top:1px solid var(--cream-dk);padding-top:1rem;">Best for: daily specials, photos of new dishes, event announcements, holiday hours</p>
+        </div>
+
+        <!-- Option 2: Google Business -->
+        <div class="guide-card anim anim-delay-2">
+          <div class="guide-card-header">
+            <div class="guide-icon">&#x1F4CD;</div>
+            <div>
+              <span class="guide-tag tag-free">Free</span><span class="guide-tag tag-control" style="margin-left:.35rem;">Great for SEO</span>
+              <h4>Post on Google Business</h4>
+            </div>
+          </div>
+          <div class="guide-steps">
+            <div class="guide-step"><div class="guide-step-num">1</div><span>Go to business.google.com and sign in.</span></div>
+            <div class="guide-step"><div class="guide-step-num">2</div><span>Select your Bawadi listing.</span></div>
+            <div class="guide-step"><div class="guide-step-num">3</div><span>Click "Add update" or "Offer" — write your special and add a photo.</span></div>
+            <div class="guide-step"><div class="guide-step-num">4</div><span>It appears on your Google Maps listing for all searchers to see.</span></div>
+          </div>
+          <p style="font-size:.83rem;color:var(--text-muted);margin-top:1.25rem;border-top:1px solid var(--cream-dk);padding-top:1rem;">Best for: updating hours, posting offers, improving your search ranking, responding to reviews</p>
+        </div>
+
+        <!-- Option 3: WhatsApp broadcast / newsletter -->
+        <div class="guide-card anim anim-delay-3">
+          <div class="guide-card-header">
+            <div class="guide-icon">&#x1F4E7;</div>
+            <div>
+              <span class="guide-tag tag-easy">Easy</span><span class="guide-tag tag-control" style="margin-left:.35rem;">Direct to Customers</span>
+              <h4>Email or WhatsApp List</h4>
+            </div>
+          </div>
+          <div class="guide-steps">
+            <div class="guide-step"><div class="guide-step-num">1</div><span>Collect emails via the form above (they go straight to your inbox).</span></div>
+            <div class="guide-step"><div class="guide-step-num">2</div><span>Use Mailchimp (free up to 500 contacts) to send a simple email.</span></div>
+            <div class="guide-step"><div class="guide-step-num">3</div><span>Or use a WhatsApp Broadcast list — message loyal customers directly.</span></div>
+            <div class="guide-step"><div class="guide-step-num">4</div><span>Announce specials, Ramadan programs, new menu items, and events.</span></div>
+          </div>
+          <p style="font-size:.83rem;color:var(--text-muted);margin-top:1.25rem;border-top:1px solid var(--cream-dk);padding-top:1rem;">Best for: loyal customers, Ramadan programs, big event announcements, exclusive offers</p>
+        </div>
+      </div>
+
+      <!-- Summary recommendation -->
+      <div style="margin-top:3rem;background:var(--black);border-radius:var(--radius-lg);padding:2rem 2.5rem;" class="anim">
+        <div style="display:flex;gap:1.5rem;align-items:flex-start;flex-wrap:wrap;">
+          <div style="flex:1;min-width:260px;">
+            <h4 style="color:var(--gold-lt);margin-bottom:.75rem;">&#x2B50; Our Recommendation</h4>
+            <p style="color:rgba(255,255,255,.65);font-size:.92rem;">The easiest system that requires zero technical knowledge: <strong style="color:var(--white);">post on Facebook every time you have a special</strong>, and update your Google Business hours whenever they change. That's it. Your customers will find you, and this website will always link them to your latest Facebook posts.</p>
+          </div>
+          <div style="flex-shrink:0;">
+            <a href="https://www.facebook.com/Bawadimediterraneangrillandsweetscafe/" target="_blank" rel="noopener" class="btn btn-primary">Go to Facebook Page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/layout.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

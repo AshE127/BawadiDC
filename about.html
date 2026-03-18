@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Bawadi Mediterranean Grill — Authentic Palestinian & Mediterranean cuisine in Falls Church, VA since 2018. Fully Halal, family friendly, hookah lounge.">
+  <title>About Us | Bawadi Mediterranean Grill</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .story-block { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .story-block.reverse { direction: rtl; }
+    .story-block.reverse > * { direction: ltr; }
+    .story-img { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4/3; }
+    .story-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .value-card {
+      background: var(--white); border-radius: var(--radius-lg); padding: 2rem 1.5rem;
+      box-shadow: var(--shadow-sm); text-align: center;
+      border-top: 4px solid transparent;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .value-card.red { border-top-color: var(--pal-red); }
+    .value-card.green { border-top-color: var(--pal-green); }
+    .value-card.gold { border-top-color: var(--gold); }
+    .value-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .value-card h4 { margin-bottom: .5rem; }
+    .value-card p { font-size: .9rem; }
+
+    .hours-section { background: var(--black); }
+    .hours-card {
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius-lg); padding: 2.5rem;
+    }
+    .hours-table-dark { width: 100%; border-collapse: collapse; }
+    .hours-table-dark td { padding: .85rem 0; font-size: 1rem; color: rgba(255,255,255,.75); border-bottom: 1px solid rgba(255,255,255,.06); }
+    .hours-table-dark td:last-child { text-align: right; font-weight: 600; color: var(--gold-lt); }
+    .hours-table-dark tr:last-child td { border-bottom: none; }
+    .hours-note { margin-top: 1.25rem; font-size: .85rem; color: rgba(255,255,255,.4); display: flex; align-items: center; gap: .5rem; }
+
+    .hookah-section {
+      background: var(--walnut);
+      position: relative; overflow: hidden;
+    }
+    .hookah-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=1600&q=80');
+      background-size: cover; background-position: center;
+      opacity: .18;
+    }
+    .hookah-content { position: relative; z-index: 1; }
+
+    .iftar-section { background: var(--cream-dk); }
+    .iftar-card {
+      background: linear-gradient(135deg, var(--pal-green-dk) 0%, var(--pal-green) 100%);
+      border-radius: var(--radius-lg); padding: 3rem; color: var(--white);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;
+    }
+    .iftar-card h3 { color: var(--white); }
+    .iftar-card p { color: rgba(255,255,255,.8); }
+
+    @media (max-width: 768px) {
+      .story-block, .story-block.reverse { grid-template-columns: 1fr; direction: ltr; gap: 2rem; }
+      .values-grid { grid-template-columns: 1fr; }
+      .iftar-card { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <section class="page-hero keffiyeh-accent">
+    <div class="container">
+      <span class="section-label">Our Story</span>
+      <h1>Where Every Dish<br>Tells a Story</h1>
+      <p>Authentic Palestinian & Mediterranean cuisine, rooted in tradition and served with love in Falls Church, Virginia since 2018.</p>
+    </div>
+  </section>
+  <div class="tatreez-stripe"></div>
+
+  <!-- ═══ STORY ═══ -->
+  <section class="section" style="background:var(--cream);">
+    <div class="container">
+      <div class="story-block anim">
+        <div>
+          <span class="section-label">Who We Are</span>
+          <h2>A Full-Service Halal Restaurant Rooted in Tradition</h2>
+          <div class="divider"></div>
+          <p>Since opening our doors in 2018, Bawadi Mediterranean Grill has been a gathering place for our community in Northern Virginia. We are a full-service, fully Halal restaurant serving authentic Mediterranean and Middle Eastern food — from the freshest hummus and smoky kabobs to the rich, slow-cooked Mansaf that brings the taste of the Levant right to your table.</p>
+          <p style="margin-top:1rem;">Our menu draws from family recipes passed down through generations. These dishes have been refined over the years, but the soul — and the taste — remains true to its authentic heritage. Whether you're dining in for a family meal, enjoying our open buffet, or ordering catering for a special occasion, you'll find food made with real ingredients and genuine care.</p>
+          <div style="margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap;">
+            <span class="badge badge-green">&#x2714; 100% Halal Certified</span>
+            <span class="badge badge-red">&#x1F4C5; Open Since 2018</span>
+            <span class="badge badge-gold">&#x1F376; Hookah Lounge</span>
+          </div>
+        </div>
+        <div>
+          <div class="story-img">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80" alt="Bawadi restaurant dining room — warm, welcoming atmosphere">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Keffiyeh band -->
+  <div class="keffiyeh-band"></div>
+
+  <!-- ═══ FOOD PHILOSOPHY ═══ -->
+  <section class="section" style="background:var(--cream-dk);">
+    <div class="container">
+      <div class="story-block reverse anim">
+        <div>
+          <div class="story-img">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=80" alt="Fresh Mediterranean ingredients and dishes">
+          </div>
+        </div>
+        <div>
+          <span class="section-label">Our Food</span>
+          <h2>Authentic Ingredients, Authentic Flavors</h2>
+          <div class="divider"></div>
+          <p>We serve breakfast on Saturdays and Sundays, lunch and dinner seven days a week. Our menu spans appetizers and mezze, grilled meats, Palestinian daily specials, fresh seafood, homemade soups, and traditional sweets. Everything is prepared fresh each day.</p>
+          <p style="margin-top:1rem;">You'll find dishes like <strong>Mansaf</strong> — the beloved Jordanian/Palestinian rice and lamb dish — alongside <strong>Musakhan</strong>, <strong>Qidra</strong>, <strong>Kabsa</strong>, and a full selection of kabobs and shawarma. Our vegetarian options include housemade falafel, baba ghannouj, grape leaves, and a full mezze spread.</p>
+          <p style="margin-top:1rem;">Not sure what to order? Our staff will happily guide you through the menu — that's what we're here for.</p>
+          <div style="margin-top:2rem;">
+            <a href="menu.html" class="btn btn-outline">Explore the Menu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ VALUES ═══ -->
+  <section class="section" style="background:var(--cream);">
+    <div class="container">
+      <div class="text-center anim" style="margin-bottom:3rem;">
+        <span class="section-label">What We Stand For</span>
+        <h2>Our <em style="font-style:italic">Commitment</em> to You</h2>
+        <div class="divider center"></div>
+      </div>
+      <div class="values-grid">
+        <div class="value-card red anim">
+          <div class="value-icon">&#x1F331;</div>
+          <h4>100% Halal</h4>
+          <p>Every item on our menu is fully Halal — no exceptions. We take pride in providing food that meets the highest standards of Halal preparation.</p>
+        </div>
+        <div class="value-card green anim anim-delay-2">
+          <div class="value-icon">&#x1F91D;</div>
+          <h4>Family & Community</h4>
+          <p>We are a family restaurant at heart. Kids are always welcome, and our warm atmosphere is designed for gathering, celebrating, and belonging.</p>
+        </div>
+        <div class="value-card gold anim anim-delay-3">
+          <div class="value-icon">&#x1F373;</div>
+          <h4>Authentic Recipes</h4>
+          <p>Our dishes come from original family recipes passed down through generations. Refined over time, but always true to their authentic roots.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOURS ═══ -->
+  <section class="section hours-section">
+    <div class="container">
+      <div class="grid-2" style="gap:4rem;align-items:start;">
+        <div class="anim">
+          <span class="section-label" style="color:var(--gold);">When to Visit</span>
+          <h2 style="color:var(--white);">Hours of <em style="font-style:italic;color:var(--gold-lt);">Operation</em></h2>
+          <div class="divider"></div>
+          <p style="color:rgba(255,255,255,.6);">We're open late so you can enjoy a leisurely dinner or a late-night meal after Isha. Weekend hours extend even later — come in anytime.</p>
+          <p style="color:rgba(255,255,255,.4);font-size:.85rem;margin-top:1rem;">⚠ Holiday hours may vary. Always call ahead on holidays: <a href="tel:7038451600" style="color:var(--gold-lt);">(703) 845-1600</a></p>
+          <div style="margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap;">
+            <a href="tel:7038451600" class="btn btn-primary">&#x260E; Call Us</a>
+            <a href="https://www.facebook.com/Bawadimediterraneangrillandsweetscafe/" target="_blank" rel="noopener" class="btn btn-secondary">Check Facebook for Updates</a>
+          </div>
+        </div>
+        <div class="anim anim-delay-2">
+          <div class="hours-card">
+            <table class="hours-table-dark">
+              <tr><td>Sunday</td><td>11:00 AM – 12:00 AM</td></tr>
+              <tr><td>Monday</td><td>11:00 AM – 12:00 AM</td></tr>
+              <tr><td>Tuesday</td><td>11:00 AM – 12:00 AM</td></tr>
+              <tr><td>Wednesday</td><td>11:00 AM – 12:00 AM</td></tr>
+              <tr><td>Thursday</td><td>11:00 AM – 12:00 AM</td></tr>
+              <tr><td>Friday</td><td>11:00 AM – 1:00 AM</td></tr>
+              <tr><td>Saturday</td><td>11:00 AM – 1:00 AM</td></tr>
+            </table>
+            <div class="hours-note">
+              <span>&#x26A0;</span>
+              <span>Hours confirmed with restaurant before launch. Call to verify holiday schedules.</span>
+            </div>
+          </div>
+          <div style="margin-top:1rem;background:rgba(0,122,61,.12);border:1px solid rgba(0,122,61,.25);border-radius:var(--radius-lg);padding:1.25rem;">
+            <p style="color:rgba(255,255,255,.7);font-size:.9rem;"><strong style="color:var(--pal-green-lt);">Breakfast weekends:</strong> Saturday & Sunday brunch service available from 11:00 AM — ask your server for the breakfast menu.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOOKAH LOUNGE ═══ -->
+  <section class="section hookah-section">
+    <div class="container hookah-content">
+      <div class="grid-2" style="gap:4rem;align-items:center;">
+        <div class="anim">
+          <span class="section-label" style="color:var(--gold);">Relax & Unwind</span>
+          <h2 style="color:var(--white);">The Hookah <em style="font-style:italic;color:var(--gold-lt);">Lounge</em></h2>
+          <div class="divider"></div>
+          <p style="color:rgba(255,255,255,.65);">After your meal — or on its own — enjoy our hookah lounge with terrace seating. It's one of the best outdoor seating experiences in the area, perfect for a relaxed evening with friends and family.</p>
+          <p style="color:rgba(255,255,255,.55);margin-top:1rem;">We offer a selection of premium hookah flavors. Call us to ask about availability and reservation options for larger groups.</p>
+          <div style="margin-top:2rem;">
+            <a href="tel:7038451600" class="btn btn-gold">&#x260E; Call for Hookah Info</a>
+          </div>
+        </div>
+        <div class="anim anim-delay-2">
+          <div style="border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/3;">
+            <img src="https://images.unsplash.com/photo-1555992336-03a23c7b20ee?w=900&q=80" alt="Bawadi hookah lounge terrace seating" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ IFTAR / RAMADAN ═══ -->
+  <section class="section iftar-section">
+    <div class="container anim">
+      <div class="iftar-card">
+        <div>
+          <span class="section-label" style="color:rgba(255,255,255,.6);">Ramadan & Special Programs</span>
+          <h3>Iftar at Bawadi</h3>
+          <div class="divider" style="background:linear-gradient(90deg,rgba(255,255,255,.5),rgba(255,255,255,.2));"></div>
+          <p>Every Ramadan, we are honored to host the community for Iftar. We offer special Iftar programs with a selection of traditional dishes to break the fast together. It's a time of community, gratitude, and authentic food shared in warmth.</p>
+          <p style="margin-top:1rem;color:rgba(255,255,255,.65);font-size:.9rem;">Contact us for this year's Ramadan hours and special Iftar packages.</p>
+        </div>
+        <div>
+          <div style="border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/3;">
+            <img src="https://images.unsplash.com/photo-1519279655081-af8012573edd?w=700&q=80" alt="Iftar table with traditional dishes" style="width:100%;height:100%;object-fit:cover;opacity:.85;">
+          </div>
+          <div style="margin-top:1rem;display:flex;gap:.75rem;">
+            <a href="tel:7038451600" class="btn btn-dark" style="flex:1;justify-content:center;">&#x260E; Call for Iftar Info</a>
+            <a href="https://www.facebook.com/Bawadimediterraneangrillandsweetscafe/" target="_blank" rel="noopener" class="btn btn-secondary" style="flex:1;justify-content:center;">Facebook Updates</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="section-sm" style="background:var(--pal-red);text-align:center;">
+    <div class="container anim">
+      <h2 style="color:var(--white);margin-bottom:.75rem;">Ready to Dine with Us?</h2>
+      <p style="color:rgba(255,255,255,.8);margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto;">Whether you're coming in, ordering online, or planning an event — we're here for you.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="menu.html" class="btn btn-secondary">View Menu</a>
+        <a href="https://www.toasttab.com/bawadi-mediterranean-grill/v2/online-order#!/" target="_blank" rel="noopener" class="btn btn-dark">Order Online</a>
+        <a href="catering.html" class="btn btn-gold">Book Catering</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/layout.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

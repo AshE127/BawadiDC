@@ -1,0 +1,5 @@
+# Cloudflare Pages _redirects
+/news-feed    /news.html    301
+/news         /news.html    301
+/menu-page    /menu.html    301
+/*            /:splat        200

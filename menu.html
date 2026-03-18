@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bawadi Mediterranean Grill full menu — kabobs, mansaf, shawarma, seafood, appetizers, sandwiches, desserts. Fully Halal. Falls Church, VA.">
+  <title>Menu | Bawadi Mediterranean Grill</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── Sticky tab nav ── */
+    .menu-tabs-bar {
+      position: sticky; top: var(--nav-h); z-index: 100;
+      background: var(--white); border-bottom: 2px solid var(--cream-dk);
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
+    }
+    .menu-tabs {
+      display: flex; align-items: center; gap: 0;
+      overflow-x: auto; scrollbar-width: none;
+      padding: 0 1.5rem;
+    }
+    .menu-tabs::-webkit-scrollbar { display: none; }
+    .menu-tab {
+      flex-shrink: 0; font-family: var(--font-body);
+      font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--text-muted); padding: 1rem 1.1rem;
+      border-bottom: 3px solid transparent; margin-bottom: -2px;
+      cursor: pointer; transition: color var(--transition), border-color var(--transition);
+      white-space: nowrap;
+    }
+    .menu-tab:hover { color: var(--pal-red); }
+    .menu-tab.active { color: var(--pal-red); border-bottom-color: var(--pal-red); }
+
+    /* ── Order CTA bar ── */
+    .menu-order-bar {
+      background: var(--black); padding: 1rem 0;
+    }
+    .menu-order-bar-inner {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: .75rem;
+    }
+    .menu-order-bar p { color: rgba(255,255,255,.65); font-size: .9rem; }
+
+    /* ── Menu layout ── */
+    .menu-body { background: var(--cream); }
+    .menu-section { padding: 3.5rem 0; border-bottom: 1px solid rgba(0,0,0,.07); }
+    .menu-section:last-child { border-bottom: none; }
+    .menu-section-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 2rem; }
+    .menu-section-header h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+    .menu-section-desc { font-size: .95rem; color: var(--text-muted); margin-top: .4rem; max-width: 500px; }
+
+    /* ── Menu item card ── */
+    .menu-items-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .menu-item {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 1.35rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      border: 1.5px solid transparent;
+    }
+    .menu-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--cream-dk); }
+    .menu-item-body { flex: 1; }
+    .menu-item-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--walnut); line-height: 1.2; }
+    .menu-item-desc { font-size: .87rem; color: var(--text-muted); margin-top: .3rem; line-height: 1.55; }
+    .menu-item-tags { display: flex; gap: .35rem; flex-wrap: wrap; margin-top: .6rem; }
+    .tag { font-size: .65rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; padding: .2rem .55rem; border-radius: 999px; }
+    .tag-halal { background: rgba(0,122,61,.1); color: var(--pal-green); }
+    .tag-veg { background: rgba(0,122,61,.12); color: var(--pal-green-dk); }
+    .tag-popular { background: rgba(206,17,38,.1); color: var(--pal-red); }
+    .tag-pal { background: rgba(200,151,26,.12); color: var(--gold); }
+    .menu-item-price {
+      font-family: var(--font-display); font-size: 1.35rem; font-weight: 700;
+      color: var(--pal-red); white-space: nowrap; flex-shrink: 0;
+    }
+
+    /* ── Full-width item (for large platters) ── */
+    .menu-items-list { display: flex; flex-direction: column; gap: 1rem; }
+    .menu-item-wide { border-radius: var(--radius-lg); }
+
+    /* ── Note box ── */
+    .menu-note {
+      background: rgba(200,151,26,.1); border: 1px solid rgba(200,151,26,.25);
+      border-radius: var(--radius-lg); padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .menu-note p { font-size: .9rem; color: var(--text-mid); }
+    .menu-note strong { color: var(--gold); }
+
+    /* Sides table */
+    .sides-table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
+    .sides-table td { padding: .9rem 1.25rem; font-size: .95rem; color: var(--text-mid); border-bottom: 1px solid var(--cream-dk); }
+    .sides-table td:last-child { text-align: right; font-weight: 700; font-family: var(--font-display); font-size: 1.1rem; color: var(--pal-red); }
+    .sides-table tr:last-child td { border-bottom: none; }
+    .sides-table tr:first-child td { background: var(--walnut); color: var(--white); font-weight: 600; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; }
+    .sides-table tr:first-child td:last-child { color: var(--gold-lt); }
+
+    @media (max-width: 768px) {
+      .menu-items-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Our Kitchen</span>
+      <h1>The Full Menu</h1>
+      <p>Fresh, authentic Mediterranean & Palestinian cuisine — 100% Halal, prepared daily in Falls Church, VA.</p>
+    </div>
+  </section>
+  <div class="tatreez-stripe"></div>
+
+  <!-- ═══ ORDER BAR ═══ -->
+  <div class="menu-order-bar">
+    <div class="container menu-order-bar-inner">
+      <p>Ready to order? Skip the wait —</p>
+      <a href="https://www.toasttab.com/bawadi-mediterranean-grill/v2/online-order#!/" target="_blank" rel="noopener" class="btn btn-primary">&#x1F6D2; Order Pickup</a>
+      <a href="https://www.toasttab.com/bawadi-mediterranean-grill/v2/online-order#!/" target="_blank" rel="noopener" class="btn btn-green">&#x1F6F5; Delivery</a>
+      <a href="https://www.halal.delivery/order/restaurant/bawadi-mediterranean-grill--menu/3" target="_blank" rel="noopener" class="btn btn-gold">&#x2605; Halal Delivery</a>
+    </div>
+  </div>
+
+  <!-- ═══ STICKY TABS ═══ -->
+  <div class="menu-tabs-bar">
+    <div class="menu-tabs">
+      <div class="menu-tab active" onclick="scrollToSection('grill')">From the Grill</div>
+      <div class="menu-tab" onclick="scrollToSection('specials')">Daily Specials</div>
+      <div class="menu-tab" onclick="scrollToSection('appetizers')">Appetizers</div>
+      <div class="menu-tab" onclick="scrollToSection('soups')">Soups & Salads</div>
+      <div class="menu-tab" onclick="scrollToSection('sandwiches')">Sandwiches</div>
+      <div class="menu-tab" onclick="scrollToSection('seafood')">Seafood</div>
+      <div class="menu-tab" onclick="scrollToSection('sweets')">Sweets & Drinks</div>
+      <div class="menu-tab" onclick="scrollToSection('sides')">Sides</div>
+    </div>
+  </div>
+
+  <!-- ═══ MENU BODY ═══ -->
+  <div class="menu-body">
+    <div class="container">
+
+      <!-- FROM THE GRILL -->
+      <div id="grill" class="menu-section">
+        <div class="menu-section-header">
+          <div>
+            <span class="section-label">Charcoal-fired</span>
+            <h2>From the Grill</h2>
+            <p class="menu-section-desc">Succulent grilled meats and vegetables prepared fresh daily. All plates served with warm bread and house salad.</p>
+          </div>
+        </div>
+        <!-- Large family platter — full width -->
+        <div class="menu-items-list" style="margin-bottom:1rem;">
+          <div class="menu-item menu-item-wide">
+            <div class="menu-item-body">
+              <div class="menu-item-name">Large Family Mixed Grill</div>
+              <div class="menu-item-desc">Kufta (kubideh) kabob, chicken kabob, meat & chicken shawarma, falafel and grape leaves on a bed of white and yellow rice. Served with warm bread, hummus, salad, pickles, garlic sauce and hot sauce.</div>
+              <div class="menu-item-tags"><span class="tag tag-popular">&#x1F525; Most Popular</span><span class="tag tag-halal">Halal</span></div>
+            </div>
+            <div class="menu-item-price">$109.95<br><span style="font-size:.8rem;font-weight:400;color:var(--text-muted);font-family:var(--font-body);">Serves 4–5</span></div>
+          </div>
+          <div class="menu-item menu-item-wide">
+            <div class="menu-item-body">
+              <div class="menu-item-name">Small Family Mixed Grill</div>
+              <div class="menu-item-desc">A smaller version of our signature mixed grill platter — perfect for 2 to 3 people sharing. Includes assorted kabobs, shawarma, and sides.</div>
+              <div class="menu-item-tags"><span class="tag tag-popular">&#x1F525; Popular</span><span class="tag tag-halal">Halal</span></div>
+            </div>
+            <div class="menu-item-price">$65.95<br><span style="font-size:.8rem;font-weight:400;color:var(--text-muted);font-family:var(--font-body);">Serves 2–3</span></div>
+          </div>
+        </div>
+        <div class="menu-items-grid">
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Kufta Kabob</div><div class="menu-item-desc">Ground beef with onions and special spices. Served with warm bread, house salad, and choice of side.</div><div class="menu-item-tags"><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$16.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Chicken Kabob</div><div class="menu-item-desc">Marinated chunks of boneless chicken with special spices. Served with warm bread, house salad, and choice of side.</div><div class="menu-item-tags"><span class="tag tag-popular">&#x1F525; Popular</span><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$16.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Beef Kabob</div><div class="menu-item-desc">Marinated beef tenderloin chunks with special spices. Served with warm bread, house salad, and choice of side.</div><div class="menu-item-tags"><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$21.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Lamb Kabob</div><div class="menu-item-desc">Marinated lamb chunks with special spices. Served with warm bread, house salad, and choice of side.</div><div class="menu-item-tags"><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$23.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Kabob Combo — Chicken & Kufta</div><div class="menu-item-desc">Chicken kabob and kufta kabob together. Served with warm bread, house salad, and choice of side.</div><div class="menu-item-tags"><span class="tag tag-popular">&#x1F525; Popular</span><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$20.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Marinated Lamb Shank</div><div class="menu-item-desc">Slow-marinated lamb shank on a bed of rice. Served with warm bread, house salad, and choice of side.</div><div class="menu-item-tags"><span class="tag tag-popular">&#x1F525; Popular</span><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$24.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Baked Chicken (Half)</div><div class="menu-item-desc">Marinated half chicken with special spices, oven baked. Served with warm bread and house salad.</div><div class="menu-item-tags"><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$15.95</div></div>
+        </div>
+      </div>
+
+      <!-- DAILY SPECIALS -->
+      <div id="specials" class="menu-section">
+        <div class="menu-section-header">
+          <div>
+            <span class="section-label">Traditional Palestinian & Levantine</span>
+            <h2>Daily Specials</h2>
+            <p class="menu-section-desc">Signature dishes made fresh each day — the heart of Palestinian home cooking.</p>
+          </div>
+        </div>
+        <div class="menu-items-grid">
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Mansaf — Lamb</div><div class="menu-item-desc">The iconic Palestinian/Jordanian celebration dish. Rice, shrak bread, jameed sauce, and mansaf soup topped with tender slow-cooked lamb.</div><div class="menu-item-tags"><span class="tag tag-popular">&#x1F525; Most Popular</span><span class="tag tag-pal">&#x1F1F5;&#x1F1F8; Palestinian</span></div></div><div class="menu-item-price">$29.99</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Palestinian Chicken Musakhan</div><div class="menu-item-desc">Spiced chicken with caramelized onions and sumac on taboun flatbread — a cherished Palestinian classic. Served with salad.</div><div class="menu-item-tags"><span class="tag tag-popular">&#x1F525; Popular</span><span class="tag tag-pal">&#x1F1F5;&#x1F1F8; Palestinian</span></div></div><div class="menu-item-price">$28.99</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Palestinian Qidra — Chicken</div><div class="menu-item-desc">Spiced rice with chickpeas and garlic, baked with chicken — traditionally prepared in a clay vessel in a clay oven. Served with salad.</div><div class="menu-item-tags"><span class="tag tag-pal">&#x1F1F5;&#x1F1F8; Palestinian</span></div></div><div class="menu-item-price">$26.99</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Qidra — Organic Amish Lamb</div><div class="menu-item-desc">Spiced rice with chickpeas, baked with organic Amish lamb. Served with yogurt and cucumber salad.</div><div class="menu-item-tags"><span class="tag tag-pal">&#x1F1F5;&#x1F1F8; Palestinian</span><span class="tag tag-popular">Premium</span></div></div><div class="menu-item-price">$28.99</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Kabsa Khalejia — Chicken</div><div class="menu-item-desc">Gulf-style fragrant rice with kabsa spices topped with half chicken. Served with salad.</div><div class="menu-item-tags"><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$26.99</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Kabsa — Organic Amish Lamb</div><div class="menu-item-desc">Fragrant rice with kabsa spices topped with organic Amish lamb. Served with salad.</div><div class="menu-item-tags"><span class="tag tag-popular">Premium</span><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$28.99</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Stew of the Day with Rice</div><div class="menu-item-desc">Our rotating daily stew — we'll let you know today's special when you order. Always fresh, always delicious.</div><div class="menu-item-tags"><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$17.99</div></div>
+        </div>
+      </div>
+
+      <!-- APPETIZERS -->
+      <div id="appetizers" class="menu-section" style="background:var(--cream-dk);margin:0 -1.5rem;padding-left:1.5rem;padding-right:1.5rem;">
+        <div class="menu-section-header">
+          <div>
+            <span class="section-label">Mezze & Starters</span>
+            <h2>Appetizers</h2>
+            <p class="menu-section-desc">Perfect for sharing — our mezze spread is a staple of Mediterranean hospitality.</p>
+          </div>
+        </div>
+        <div class="menu-items-grid">
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Hummus</div><div class="menu-item-desc">Chickpeas pureed with tahini, fresh lemon juice and olive oil. Served with warm pita.</div><div class="menu-item-tags"><span class="tag tag-veg">Vegetarian</span><span class="tag tag-popular">&#x1F525; Classic</span></div></div><div class="menu-item-price">$8.50</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Musabaha</div><div class="menu-item-desc">Pureed chickpeas and whole chickpeas with sesame seed sauce and olive oil — a richer, chunkier cousin of hummus.</div><div class="menu-item-tags"><span class="tag tag-veg">Vegetarian</span></div></div><div class="menu-item-price">$10.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Baba Ghannouj</div><div class="menu-item-desc">Pureed roasted eggplant with tahini, fresh lemon juice and olive oil. Smoky and delicious.</div><div class="menu-item-tags"><span class="tag tag-veg">Vegetarian</span><span class="tag tag-popular">&#x1F525; Popular</span></div></div><div class="menu-item-price">$9.50</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Labanah</div><div class="menu-item-desc">Strained Mediterranean yogurt — soft, tangy, creamy, and nutritious. Served with olive oil and herbs.</div><div class="menu-item-tags"><span class="tag tag-veg">Vegetarian</span></div></div><div class="menu-item-price">$8.50</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Foul Mudammas</div><div class="menu-item-desc">Pureed cooked fava beans with fresh lemon juice, olive oil, and special sauce. A hearty Levantine staple.</div><div class="menu-item-tags"><span class="tag tag-veg">Vegetarian</span></div></div><div class="menu-item-price">$8.50</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Falafel (5 pieces)</div><div class="menu-item-desc">Deep-fried chickpea croquettes with onions, parsley, garlic and our special spices. Crispy outside, fluffy inside.</div><div class="menu-item-tags"><span class="tag tag-veg">Vegetarian</span><span class="tag tag-popular">&#x1F525; Popular</span></div></div><div class="menu-item-price">$8.50</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Vegetarian Grape Leaves (5 pieces)</div><div class="menu-item-desc">Grape leaves rolled with rice, parsley, tomato and our special sauce. 100% vegetarian.</div><div class="menu-item-tags"><span class="tag tag-veg">Vegetarian</span></div></div><div class="menu-item-price">$8.50</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Fried Kibbeh (3 pieces)</div><div class="menu-item-desc">Deep-fried cracked wheat croquettes stuffed with ground beef, onions, and nuts. Served with yogurt sauce.</div><div class="menu-item-tags"><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$9.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Homemade Pies (3 pieces)</div><div class="menu-item-desc">Freshly baked homemade savory pies. Ask your server for today's filling.</div><div class="menu-item-tags"><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$8.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">French Fries</div><div class="menu-item-desc">Golden, crispy deep-fried potato fries.</div><div class="menu-item-tags"><span class="tag tag-veg">Vegetarian</span></div></div><div class="menu-item-price">$5.95</div></div>
+          <div class="menu-item" style="grid-column:1/-1;background:rgba(0,122,61,.05);border-color:rgba(0,122,61,.15);"><div class="menu-item-body"><div class="menu-item-name">Bawadi Starter Veggie Combo</div><div class="menu-item-desc">The perfect mezze spread — falafel, hummus, baba ghannouj, and vegetarian grape leaves together. Great for sharing.</div><div class="menu-item-tags"><span class="tag tag-veg">Vegetarian</span><span class="tag tag-popular">&#x1F525; Best Value</span></div></div><div class="menu-item-price">$17.95</div></div>
+        </div>
+      </div>
+
+      <!-- SOUPS & SALADS -->
+      <div id="soups" class="menu-section">
+        <div class="menu-section-header">
+          <div>
+            <span class="section-label">Fresh Daily</span>
+            <h2>Soups & Salads</h2>
+          </div>
+        </div>
+        <div class="menu-items-grid">
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Fresh Homemade Soup</div><div class="menu-item-desc">Our daily fresh soup, made from scratch every morning. Ask your server for today's soup.</div><div class="menu-item-tags"><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$5.95<br><span style="font-size:.75rem;color:var(--text-muted);font-family:var(--font-body);">Small</span></div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Arabic Salad</div><div class="menu-item-desc">Tomatoes, cucumber, fresh lemon juice, chopped parsley, and olive oil. Simple, fresh, and vibrant.</div><div class="menu-item-tags"><span class="tag tag-veg">Vegetarian</span></div></div><div class="menu-item-price">$8.50</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Cucumber & Yogurt Salad</div><div class="menu-item-desc">Cucumbers with yogurt, garlic, and fresh mint — refreshing and cooling.</div><div class="menu-item-tags"><span class="tag tag-veg">Vegetarian</span></div></div><div class="menu-item-price">$8.50</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Tabouleh Salad</div><div class="menu-item-desc">Finely chopped parsley, cracked wheat, tomatoes, green onions, fresh lemon juice and olive oil. A Mediterranean classic.</div><div class="menu-item-tags"><span class="tag tag-veg">Vegetarian</span><span class="tag tag-popular">&#x1F525; Classic</span></div></div><div class="menu-item-price">$9.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Fatoush Salad</div><div class="menu-item-desc">Mixed greens, tomatoes, cucumber, fresh lemon, olive oil vinaigrette, and crispy pita chips.</div><div class="menu-item-tags"><span class="tag tag-veg">Vegetarian</span></div></div><div class="menu-item-price">$8.95<br><span style="font-size:.75rem;color:var(--text-muted);font-family:var(--font-body);">Small</span></div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Eggplant Salad</div><div class="menu-item-desc">Roasted eggplant salad with Mediterranean seasonings and fresh herbs.</div><div class="menu-item-tags"><span class="tag tag-veg">Vegetarian</span></div></div><div class="menu-item-price">$9.95<br><span style="font-size:.75rem;color:var(--text-muted);font-family:var(--font-body);">Small</span></div></div>
+        </div>
+      </div>
+
+      <!-- SANDWICHES -->
+      <div id="sandwiches" class="menu-section" style="background:var(--cream-dk);margin:0 -1.5rem;padding-left:1.5rem;padding-right:1.5rem;">
+        <div class="menu-section-header">
+          <div>
+            <span class="section-label">Quick & Delicious</span>
+            <h2>Sandwiches</h2>
+            <p class="menu-section-desc">All sandwiches served in warm pita or flatbread with salad and our house sauces.</p>
+          </div>
+        </div>
+        <div class="menu-items-grid">
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Falafel Sandwich</div><div class="menu-item-desc">Crispy falafel in warm bread with fresh vegetables, tahini, and pickles.</div><div class="menu-item-tags"><span class="tag tag-veg">Vegetarian</span><span class="tag tag-popular">&#x1F525; Popular</span></div></div><div class="menu-item-price">$7.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Chicken Shawarma Sandwich</div><div class="menu-item-desc">Sliced marinated chicken shawarma with garlic sauce, pickles, and fresh vegetables in warm bread.</div><div class="menu-item-tags"><span class="tag tag-popular">&#x1F525; Most Popular</span><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$8.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Meat Shawarma Sandwich</div><div class="menu-item-desc">Sliced seasoned beef & lamb shawarma with tahini, pickles, and fresh vegetables in warm bread.</div><div class="menu-item-tags"><span class="tag tag-popular">&#x1F525; Popular</span><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$8.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Kufta Kabob Sandwich</div><div class="menu-item-desc">Spiced ground beef kabob in warm bread with salad and your choice of sauce.</div><div class="menu-item-tags"><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$8.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Chicken Kabob Sandwich</div><div class="menu-item-desc">Grilled marinated chicken chunks in warm bread with fresh salad and garlic sauce.</div><div class="menu-item-tags"><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$9.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Beef Kabob Sandwich</div><div class="menu-item-desc">Marinated beef tenderloin kabob chunks in warm bread with salad and tahini.</div><div class="menu-item-tags"><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$9.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Lamb Kabob Sandwich</div><div class="menu-item-desc">Marinated lamb kabob chunks in warm bread with salad and special sauce.</div><div class="menu-item-tags"><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$10.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Fried Fish Sandwich</div><div class="menu-item-desc">Crispy fried fish fillet in warm bread with fresh salad and tartar or tahini sauce.</div><div class="menu-item-tags"><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$9.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Steak & Cheese Sub</div><div class="menu-item-desc">Seasoned steak with melted cheese in a sub roll with peppers and onions.</div><div class="menu-item-tags"><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$10.95</div></div>
+        </div>
+      </div>
+
+      <!-- SEAFOOD -->
+      <div id="seafood" class="menu-section">
+        <div class="menu-section-header">
+          <div>
+            <span class="section-label">From the Sea</span>
+            <h2>Seafood Fare</h2>
+            <p class="menu-section-desc">Fresh seafood prepared Mediterranean-style with lemon, herbs, and our signature tahini sauce.</p>
+          </div>
+        </div>
+        <div class="menu-items-grid">
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Shrimp Kabobs</div><div class="menu-item-desc">6 large shrimp, marinated with our special spices, grilled on skewers. Served with lemon & butter.</div><div class="menu-item-tags"><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$21.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Salmon Kabob</div><div class="menu-item-desc">Marinated salmon with lemon and olive oil, grilled on skewers. Served with special tahini sauce.</div><div class="menu-item-tags"><span class="tag tag-popular">&#x1F525; Popular</span><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$22.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Seafood Kabob</div><div class="menu-item-desc">The best of both worlds — marinated shrimp and salmon together on skewers with lemon and oil. Served with tahini.</div><div class="menu-item-tags"><span class="tag tag-popular">&#x1F525; Popular</span><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$25.95</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Bawadi Seafood Platter</div><div class="menu-item-desc">Grilled salmon and jumbo shrimp marinated with lemon, garlic, and olive oil. Served with special tahini sauce.</div><div class="menu-item-tags"><span class="tag tag-popular">&#x1F525; Popular</span><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$29.95</div></div>
+          <div class="menu-item" style="grid-column:1/-1;background:rgba(206,17,38,.04);border-color:rgba(206,17,38,.12);"><div class="menu-item-body"><div class="menu-item-name">Daily Catch — Bronzini Mediterranean Sea Bass</div><div class="menu-item-desc">Whole marinated Bronzini sea bass with lemon and olive oil — a Mediterranean showstopper. Served with fries, rice, and special tahini sauce. Availability varies — ask your server.</div><div class="menu-item-tags"><span class="tag tag-popular">&#x1F525; Chef's Signature</span><span class="tag tag-halal">Halal</span></div></div><div class="menu-item-price">$35.99</div></div>
+        </div>
+      </div>
+
+      <!-- SWEETS & DRINKS -->
+      <div id="sweets" class="menu-section" style="background:var(--cream-dk);margin:0 -1.5rem;padding-left:1.5rem;padding-right:1.5rem;">
+        <div class="menu-section-header">
+          <div>
+            <span class="section-label">Finish Sweet</span>
+            <h2>Sweets & Beverages</h2>
+            <p class="menu-section-desc">Traditional Middle Eastern desserts and refreshments. Ask your server for our full seasonal selection.</p>
+          </div>
+        </div>
+        <div class="menu-note">
+          <p>&#x2615; <strong>Fresh juices, Arabic coffee, and specialty teas</strong> are available — ask your server for the current selection. Our dessert menu rotates with seasonal specialties.</p>
+        </div>
+        <div class="menu-items-grid">
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Kunafeh — Cheese</div><div class="menu-item-desc">The beloved Levantine dessert — crispy shredded pastry layered with warm stretchy cheese, soaked in sugar syrup and rose water.</div><div class="menu-item-tags"><span class="tag tag-popular">&#x1F525; Most Popular</span><span class="tag tag-pal">&#x1F1F5;&#x1F1F8; Palestinian</span></div></div><div class="menu-item-price">$19.99</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Kunafeh — Cream</div><div class="menu-item-desc">The same beloved kunafeh — crispy shredded pastry layered with sweet cream and soaked in fragrant sugar syrup.</div><div class="menu-item-tags"><span class="tag tag-popular">&#x1F525; Popular</span><span class="tag tag-pal">&#x1F1F5;&#x1F1F8; Palestinian</span></div></div><div class="menu-item-price">$19.99</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Baklava & Other Sweets</div><div class="menu-item-desc">A selection of traditional Middle Eastern pastries and sweets. Varieties vary — ask your server what's available today.</div><div class="menu-item-tags"><span class="tag tag-veg">Vegetarian</span></div></div><div class="menu-item-price">Ask server</div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Fresh Juices & Beverages</div><div class="menu-item-desc">Freshly squeezed juices, Arabic coffee (qahwa), mint tea, and soft drinks. Ask your server for the full list.</div><div class="menu-item-tags"><span class="tag tag-veg">Beverages</span></div></div><div class="menu-item-price">Ask server</div></div>
+        </div>
+      </div>
+
+      <!-- SIDES -->
+      <div id="sides" class="menu-section">
+        <div class="menu-section-header">
+          <div>
+            <span class="section-label">Add-Ons</span>
+            <h2>Sides & Extras</h2>
+          </div>
+        </div>
+        <div style="max-width:500px;">
+          <table class="sides-table">
+            <tr><td>Item</td><td>Price</td></tr>
+            <tr><td>Garlic Sauce</td><td>$1.25</td></tr>
+            <tr><td>Tahini Sauce</td><td>$1.25</td></tr>
+            <tr><td>Hot Sauce</td><td>$1.25</td></tr>
+            <tr><td>Warm Bread</td><td>$1.50</td></tr>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /container -->
+  </div><!-- /menu-body -->
+
+  <!-- ═══ BOTTOM ORDER CTA ═══ -->
+  <section style="background:var(--pal-red);padding:3rem 0;text-align:center;">
+    <div class="container">
+      <h2 style="color:var(--white);margin-bottom:.75rem;">Ready to Order?</h2>
+      <p style="color:rgba(255,255,255,.8);margin-bottom:2rem;">Order pickup or delivery online — quick, easy, always fresh.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="https://www.toasttab.com/bawadi-mediterranean-grill/v2/online-order#!/" target="_blank" rel="noopener" class="btn btn-dark">&#x1F6D2; Order Pickup</a>
+        <a href="https://www.toasttab.com/bawadi-mediterranean-grill/v2/online-order#!/" target="_blank" rel="noopener" class="btn btn-secondary">&#x1F6F5; Bawadi Delivery</a>
+        <a href="https://www.halal.delivery/order/restaurant/bawadi-mediterranean-grill--menu/3" target="_blank" rel="noopener" class="btn btn-gold">&#x2605; Halal Delivery</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/layout.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    /* Sticky tab active state on scroll */
+    const sections = document.querySelectorAll('.menu-section[id]');
+    const tabs = document.querySelectorAll('.menu-tab');
+    const tabBar = document.querySelector('.menu-tabs-bar');
+    const tabBarOffset = () => (tabBar ? tabBar.offsetHeight : 0) + 70;
+
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const y = el.getBoundingClientRect().top + window.scrollY - tabBarOffset() - 20;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          tabs.forEach(t => t.classList.remove('active'));
+          const id = e.target.getAttribute('id');
+          const activeTab = document.querySelector(`.menu-tab[onclick*="${id}"]`);
+          if (activeTab) activeTab.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => io.observe(s));
+  </script>
+</body>
+</html>

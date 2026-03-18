@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bawadi Mediterranean Grill buffet — Arabic lunch & dinner buffet in Falls Church, VA. Adults $26.99, kids $14.99. Hookah lounge with terrace seating.">
+  <title>Buffet | Bawadi Mediterranean Grill</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .buffet-schedule-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+    .schedule-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm); overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .schedule-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .schedule-card-header {
+      padding: 1.5rem; color: var(--white); text-align: center;
+    }
+    .schedule-card-header h3 { color: var(--white); font-size: 1.5rem; }
+    .schedule-card-header p { color: rgba(255,255,255,.75); font-size: .85rem; margin-top: .3rem; }
+    .schedule-card-body { padding: 1.5rem; }
+    .schedule-row {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding: .6rem 0; border-bottom: 1px solid var(--cream-dk);
+      font-size: .9rem;
+    }
+    .schedule-row:last-child { border-bottom: none; }
+    .schedule-day { color: var(--text-mid); font-weight: 500; }
+    .schedule-time { color: var(--pal-green); font-weight: 600; text-align: right; font-size: .85rem; }
+    .price-pills { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: 1.25rem; }
+    .price-pill {
+      display: flex; flex-direction: column; align-items: center;
+      background: var(--cream-dk); border-radius: var(--radius-lg);
+      padding: .75rem 1.25rem; flex: 1;
+    }
+    .price-pill-amount { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--pal-red); line-height: 1; }
+    .price-pill-label { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); margin-top: .3rem; }
+
+    /* Weekend special card */
+    .weekend-special {
+      background: linear-gradient(135deg, var(--walnut) 0%, #4A2E18 100%);
+      border-radius: var(--radius-lg); padding: 3rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+    }
+    .weekend-special h3 { color: var(--gold-lt); }
+    .weekend-special p { color: rgba(255,255,255,.7); }
+    .weekend-items { display: flex; flex-direction: column; gap: .75rem; margin-top: 1.25rem; }
+    .weekend-item {
+      display: flex; align-items: center; gap: .75rem;
+      background: rgba(255,255,255,.06); border-radius: var(--radius);
+      padding: .75rem 1rem; color: rgba(255,255,255,.8); font-size: .9rem;
+    }
+    .weekend-item::before { content: '✦'; color: var(--gold); flex-shrink: 0; }
+
+    /* Hookah section */
+    .hookah-full {
+      background: var(--black); position: relative; overflow: hidden;
+    }
+    .hookah-full::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1547496502-affa22d38842?w=1600&q=80');
+      background-size: cover; background-position: center;
+      opacity: .2;
+    }
+    .hookah-inner { position: relative; z-index: 1; }
+
+    .hookah-features {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem;
+    }
+    .hookah-feature {
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius-lg); padding: 2rem 1.5rem; text-align: center;
+    }
+    .hookah-feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hookah-feature h4 { color: var(--gold-lt); margin-bottom: .5rem; }
+    .hookah-feature p { color: rgba(255,255,255,.55); font-size: .9rem; }
+
+    @media (max-width: 768px) {
+      .buffet-schedule-grid { grid-template-columns: 1fr; }
+      .weekend-special { grid-template-columns: 1fr; gap: 2rem; }
+      .hookah-features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Dine Your Way</span>
+      <h1>Buffet & Dining Experiences</h1>
+      <p>A luxurious Arabic buffet featuring dozens of fresh dishes — served daily in a warm, family-friendly atmosphere.</p>
+    </div>
+  </section>
+  <div class="tatreez-stripe"></div>
+
+  <!-- ═══ BUFFET SCHEDULE ═══ -->
+  <section class="section" style="background:var(--cream);">
+    <div class="container">
+      <div class="text-center anim" style="margin-bottom:3rem;">
+        <span class="section-label">Lunch & Dinner Buffet</span>
+        <h2>Buffet <em style="font-style:italic">Schedule & Pricing</em></h2>
+        <div class="divider center"></div>
+        <p class="section-sub">Open daily. Kids 10 and under always eat at the reduced price.</p>
+      </div>
+      <div class="buffet-schedule-grid">
+        <!-- Lunch -->
+        <div class="schedule-card anim">
+          <div class="schedule-card-header" style="background:var(--pal-red);">
+            <h3>Lunch Buffet</h3>
+            <p>Served daily, Monday through Sunday</p>
+          </div>
+          <div class="schedule-card-body">
+            <div class="schedule-row"><span class="schedule-day">Mon – Thu</span><span class="schedule-time">11:30 AM – 3:00 PM</span></div>
+            <div class="schedule-row"><span class="schedule-day">Friday</span><span class="schedule-time">11:30 AM – 3:30 PM</span></div>
+            <div class="schedule-row"><span class="schedule-day">Sat & Sun Brunch</span><span class="schedule-time">11:00 AM – 3:30 PM</span></div>
+            <div class="price-pills">
+              <div class="price-pill"><div class="price-pill-amount">$26.99</div><div class="price-pill-label">Adults</div></div>
+              <div class="price-pill"><div class="price-pill-amount">$14.99</div><div class="price-pill-label">Kids (under 10)</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Dinner -->
+        <div class="schedule-card anim anim-delay-2">
+          <div class="schedule-card-header" style="background:var(--pal-green);">
+            <h3>Dinner Buffet</h3>
+            <p>Selected evenings each week</p>
+          </div>
+          <div class="schedule-card-body">
+            <div class="schedule-row"><span class="schedule-day">Monday</span><span class="schedule-time">6:00 PM – 9:00 PM</span></div>
+            <div class="schedule-row"><span class="schedule-day">Thursday</span><span class="schedule-time">6:00 PM – 9:00 PM</span></div>
+            <div class="schedule-row"><span class="schedule-day" style="color:var(--text-muted);font-size:.85rem;">Tue, Wed, Fri–Sun</span><span class="schedule-time" style="color:var(--text-muted);">À la carte only</span></div>
+            <div class="price-pills">
+              <div class="price-pill"><div class="price-pill-amount">$26.99</div><div class="price-pill-label">Adults</div></div>
+              <div class="price-pill"><div class="price-pill-amount">$14.99</div><div class="price-pill-label">Kids (under 10)</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- What's included -->
+        <div class="schedule-card anim anim-delay-3">
+          <div class="schedule-card-header" style="background:var(--walnut);">
+            <h3>What's Included</h3>
+            <p>A full spread, fresh every day</p>
+          </div>
+          <div class="schedule-card-body">
+            <div class="schedule-row"><span class="schedule-day">Hot Mains</span><span class="schedule-time" style="color:var(--text-muted);">Daily rotating</span></div>
+            <div class="schedule-row"><span class="schedule-day">Mezze & Salads</span><span class="schedule-time" style="color:var(--text-muted);">Always fresh</span></div>
+            <div class="schedule-row"><span class="schedule-day">Bread & Sides</span><span class="schedule-time" style="color:var(--text-muted);">Unlimited</span></div>
+            <div class="schedule-row"><span class="schedule-day">Kids Section</span><span class="schedule-time" style="color:var(--pal-green);">Newly added ✓</span></div>
+            <p style="font-size:.82rem;color:var(--text-muted);margin-top:1rem;">Full buffet spread varies by day. Call for today's dishes.</p>
+          </div>
+        </div>
+      </div>
+      <div style="background:rgba(0,122,61,.08);border:1px solid rgba(0,122,61,.2);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;">
+        <span style="font-size:1.5rem;">&#x26A0;</span>
+        <p><strong style="color:var(--pal-green);">Buffet schedule may vary on holidays.</strong> Always call ahead to confirm: <a href="tel:7038451600" style="color:var(--pal-green);font-weight:600;">(703) 845-1600</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Keffiyeh divider -->
+  <div class="keffiyeh-band"></div>
+
+  <!-- ═══ WEEKEND SPECIALS ═══ -->
+  <section class="section" style="background:var(--cream-dk);">
+    <div class="container">
+      <div class="text-center anim" style="margin-bottom:3rem;">
+        <span class="section-label">Friday & Saturday Nights</span>
+        <h2>Weekend Dinner <em style="font-style:italic">Specials</em></h2>
+        <div class="divider center"></div>
+        <p class="section-sub">On weekends, we go above and beyond our regular menu with showstopping traditional dishes.</p>
+      </div>
+      <div class="weekend-special anim">
+        <div>
+          <span class="section-label" style="color:var(--gold);">Available on Weekends</span>
+          <h3>Authentic Celebration Dishes</h3>
+          <div class="divider" style="background:linear-gradient(90deg,var(--gold),rgba(200,151,26,.3));"></div>
+          <p style="color:rgba(255,255,255,.65);">Our weekend dinner specials bring the most beloved and celebratory dishes of Palestinian and Levantine cuisine to your table. These are the dishes served at weddings, Eid celebrations, and family milestones — now available every weekend.</p>
+          <p style="color:rgba(255,255,255,.5);font-size:.88rem;margin-top:1rem;">Call ahead to confirm weekend availability and pricing.</p>
+          <div style="margin-top:2rem;">
+            <a href="tel:7038451600" class="btn btn-gold">&#x260E; Call to Confirm Availability</a>
+          </div>
+        </div>
+        <div>
+          <div class="weekend-items">
+            <div class="weekend-item"><strong>Whole Lamb Shoulder</strong> — on a bed of rice, serves 2–4 people</div>
+            <div class="weekend-item"><strong>Jordanian Mansaf</strong> — individual and family portions</div>
+            <div class="weekend-item"><strong>Palestinian Chicken Musakhan</strong> — sumac chicken on taboun bread</div>
+            <div class="weekend-item"><strong>Maklouba</strong> — choose lamb, chicken, or vegetarian</div>
+          </div>
+          <div style="margin-top:1.5rem;background:rgba(200,151,26,.1);border:1px solid rgba(200,151,26,.2);border-radius:var(--radius-lg);padding:1.25rem;">
+            <p style="color:rgba(255,255,255,.6);font-size:.88rem;">Ask your server for the complete weekend special menu and individual pricing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOOKAH LOUNGE ═══ -->
+  <section class="section hookah-full">
+    <div class="container hookah-inner">
+      <div class="grid-2" style="gap:4rem;align-items:center;">
+        <div class="anim text-white">
+          <span class="section-label" style="color:var(--gold);">Terrace Seating</span>
+          <h2>The Hookah <em style="font-style:italic;color:var(--gold-lt);">Lounge</em></h2>
+          <div class="divider" style="background:linear-gradient(90deg,var(--gold),rgba(200,151,26,.3));"></div>
+          <p style="color:rgba(255,255,255,.65);">One of the best outdoor dining and hookah experiences in the Falls Church area. Enjoy premium hookah on our terrace, perfect for a relaxed evening, a long dinner with friends, or winding down after a late-night meal.</p>
+          <p style="color:rgba(255,255,255,.5);margin-top:1rem;font-size:.9rem;">Hookah menu and pricing available at the restaurant. For large groups or reservations, please call ahead.</p>
+          <div style="margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap;">
+            <a href="tel:7038451600" class="btn btn-gold">&#x260E; (703) 845-1600</a>
+            <a href="https://www.facebook.com/Bawadimediterraneangrillandsweetscafe/" target="_blank" rel="noopener" class="btn btn-secondary">See Facebook for Updates</a>
+          </div>
+        </div>
+        <div class="anim anim-delay-2">
+          <div style="border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/3;">
+            <img src="https://images.unsplash.com/photo-1555992336-03a23c7b20ee?w=900&q=80" alt="Bawadi hookah lounge terrace seating" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+        </div>
+      </div>
+      <div class="hookah-features anim" style="margin-top:3rem;">
+        <div class="hookah-feature">
+          <div class="hookah-feature-icon">&#x2600;</div>
+          <h4>Terrace Seating</h4>
+          <p>Enjoy the outdoors — our terrace is one of the most comfortable spots in Falls Church for a long, relaxed evening.</p>
+        </div>
+        <div class="hookah-feature">
+          <div class="hookah-feature-icon">&#x1F376;</div>
+          <h4>Premium Hookah</h4>
+          <p>A selection of quality hookah flavors available. Ask your server for today's menu.</p>
+        </div>
+        <div class="hookah-feature">
+          <div class="hookah-feature-icon">&#x1F46A;</div>
+          <h4>Groups Welcome</h4>
+          <p>Bringing a group? Call ahead and we'll make sure your seating is ready for a comfortable experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="section-sm" style="background:var(--pal-red);text-align:center;">
+    <div class="container anim">
+      <h2 style="color:var(--white);margin-bottom:.75rem;">Join Us for the Buffet</h2>
+      <p style="color:rgba(255,255,255,.8);margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto;">Dine in for the buffet or order a la carte — either way, you'll leave satisfied.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="tel:7038451600" class="btn btn-dark">&#x260E; Call Us</a>
+        <a href="menu.html" class="btn btn-secondary">View Full Menu</a>
+        <a href="https://maps.google.com/?q=6304+Leesburg+Pike,+Falls+Church+VA+22044" target="_blank" rel="noopener" class="btn btn-gold">&#x1F5FA; Get Directions</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/layout.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

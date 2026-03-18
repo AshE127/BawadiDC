@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bawadi Mediterranean Grill — Authentic Palestinian & Mediterranean cuisine in Falls Church, VA. Fully Halal. Dine-in, buffet, catering & online ordering.">
+  <title>Bawadi Mediterranean Grill | Falls Church, VA</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── HOME-SPECIFIC STYLES ── */
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      background: var(--black);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      padding-top: var(--nav-h);
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1544025162-d76594f71c88?w=1600&q=80');
+      background-size: cover; background-position: center;
+      filter: brightness(.38);
+    }
+    /* Subtle keffiyeh overlay */
+    .hero-keffiyeh {
+      position: absolute; inset: 0; z-index: 1;
+      background-image:
+        repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(0,122,61,.06) 28px, rgba(0,122,61,.06) 30px),
+        repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(206,17,38,.04) 28px, rgba(206,17,38,.04) 30px),
+        repeating-linear-gradient(45deg, transparent, transparent 18px, rgba(255,255,255,.02) 18px, rgba(255,255,255,.02) 20px);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 3rem 1.5rem;
+      max-width: 860px; margin: 0 auto;
+    }
+    .hero-halal { margin-bottom: 1.5rem; }
+    .hero h1 { color: var(--white); margin-bottom: .6rem; }
+    .hero h1 em { font-style: italic; color: var(--gold-lt); }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(255,255,255,.75);
+      margin: 1.2rem auto 2.5rem; max-width: 560px; line-height: 1.65;
+    }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: .4rem;
+      color: rgba(255,255,255,.4); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    .hero-scroll::after { content: '↓'; font-size: 1.2rem; color: rgba(255,255,255,.35); }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+    /* Palestinian flag banner strip */
+    .flag-banner {
+      display: flex; height: 8px; width: 100%;
+    }
+    .flag-banner .fb-black  { flex: 1; background: var(--black); }
+    .flag-banner .fb-white  { flex: 1; background: var(--white); }
+    .flag-banner .fb-green  { flex: 1; background: var(--pal-green); }
+    .flag-banner .fb-tri    { width: 0; height: 0; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 10px solid var(--pal-red); flex-shrink: 0; }
+
+    /* Order strip */
+    .order-strip {
+      background: var(--walnut); padding: 1.4rem 0;
+    }
+    .order-strip-inner {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: 1rem; text-align: center;
+    }
+    .order-strip-text {
+      color: rgba(255,255,255,.7); font-size: .88rem; letter-spacing: .04em;
+    }
+    .order-strip-text strong { color: var(--gold-lt); font-weight: 600; }
+
+    /* Hours strip */
+    .hours-strip {
+      background: var(--pal-green); padding: .75rem 0;
+    }
+    .hours-strip-inner {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: 1.5rem;
+    }
+    .hours-strip span { color: rgba(255,255,255,.85); font-size: .82rem; letter-spacing: .04em; }
+    .hours-strip strong { color: var(--white); }
+    .hours-strip .sep { color: rgba(255,255,255,.3); }
+
+    /* About section */
+    .about-section { background: var(--cream); }
+    .about-img-wrap { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+    .about-img-wrap::before {
+      content: '';
+      position: absolute; top: -12px; left: -12px;
+      width: 80px; height: 80px; z-index: -1;
+      background: repeating-linear-gradient(45deg, var(--pal-red) 0, var(--pal-red) 2px, transparent 0, transparent 50%) 0 0 / 8px 8px;
+      border-radius: var(--radius);
+    }
+    .about-badges { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1.5rem 0; }
+    .badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .75rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: .35rem .9rem; border-radius: 999px; border: 1.5px solid;
+    }
+    .badge-green { background: rgba(0,122,61,.1); color: var(--pal-green); border-color: var(--pal-green); }
+    .badge-red { background: rgba(206,17,38,.08); color: var(--pal-red); border-color: var(--pal-red); }
+    .badge-gold { background: rgba(200,151,26,.12); color: var(--gold); border-color: var(--gold); }
+
+    /* Food gallery */
+    .gallery-section { background: var(--cream-dk); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1rem;
+    }
+    .gallery-grid .g-main {
+      grid-column: 1; grid-row: 1 / 3;
+      aspect-ratio: 3/4; overflow: hidden; border-radius: var(--radius-lg);
+    }
+    .gallery-grid .g-sm { aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-lg); }
+    .gallery-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .gallery-grid .g-main:hover img,
+    .gallery-grid .g-sm:hover img { transform: scale(1.04); }
+
+    /* Feature cards (Buffet / Catering teaser) */
+    .feature-card {
+      position: relative; border-radius: var(--radius-lg); overflow: hidden;
+      min-height: 380px; display: flex; align-items: flex-end;
+    }
+    .feature-card-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      transition: transform .5s ease;
+    }
+    .feature-card:hover .feature-card-bg { transform: scale(1.04); }
+    .feature-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,5,0,.85) 0%, rgba(10,5,0,.2) 60%, transparent 100%);
+    }
+    .feature-card-body {
+      position: relative; z-index: 1; padding: 2rem;
+    }
+    .feature-card-body h3 { color: var(--white); margin-bottom: .5rem; }
+    .feature-card-body p { color: rgba(255,255,255,.7); font-size: .95rem; margin-bottom: 1.2rem; }
+
+    /* Specials / menu preview */
+    .menu-preview { background: var(--black); }
+    .menu-preview h2 { color: var(--white); }
+    .menu-preview .section-label { color: var(--gold); }
+    .menu-item-card {
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--radius-lg); padding: 1.3rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .menu-item-card:hover { background: rgba(255,255,255,.09); border-color: rgba(200,151,26,.3); }
+    .menu-item-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--white); }
+    .menu-item-desc { font-size: .85rem; color: rgba(255,255,255,.5); margin-top: .25rem; line-height: 1.5; }
+    .menu-item-price { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--gold-lt); white-space: nowrap; }
+    .menu-preview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    /* Testimonials / trust */
+    .trust-section { background: var(--cream); }
+    .trust-bar {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: 3rem; padding: 3rem 0; border-top: 1px solid rgba(0,0,0,.08); border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .trust-stat { text-align: center; }
+    .trust-stat-num { font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--pal-red); line-height: 1; }
+    .trust-stat-label { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin-top: .35rem; }
+
+    /* Map + contact */
+    .contact-section { background: var(--cream-dk); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: start; }
+    .contact-info h3 { margin-bottom: 1.5rem; }
+    .contact-row { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; }
+    .contact-icon {
+      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+      background: var(--pal-red); color: var(--white);
+      display: flex; align-items: center; justify-content: center; font-size: 1rem;
+    }
+    .contact-row p { font-size: .95rem; }
+    .contact-row a { color: var(--pal-green); font-weight: 500; }
+    .contact-row a:hover { text-decoration: underline; }
+    .map-wrap { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); }
+    .map-wrap iframe { width: 100%; height: 380px; border: 0; display: block; }
+
+    /* Contact form */
+    .contact-form { background: var(--white); border-radius: var(--radius-lg); padding: 2.5rem; box-shadow: var(--shadow-sm); margin-top: 2rem; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-size: .82rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: .45rem; }
+    .form-group input,.form-group textarea {
+      width: 100%; padding: .85rem 1rem; border: 1.5px solid rgba(0,0,0,.12);
+      border-radius: var(--radius); font-family: var(--font-body); font-size: .95rem;
+      background: var(--cream); color: var(--text-dark); transition: border-color var(--transition);
+    }
+    .form-group input:focus,.form-group textarea:focus { outline: none; border-color: var(--pal-green); }
+    .form-group textarea { height: 120px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid .g-main { grid-column: 1 / -1; grid-row: auto; aspect-ratio: 16/9; }
+      .menu-preview-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-btns .btn { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV + FOOTER injected by layout.js -->
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-keffiyeh"></div>
+    <div class="hero-content">
+      <div class="hero-halal">
+        <span class="halal-badge">&#x2714; 100% Halal</span>
+      </div>
+      <h1>Your Home for<br><em>Mediterranean &</em><br><em>Palestinian Cuisine</em></h1>
+      <p class="hero-sub">Authentic flavors passed down through generations — kabobs, mansaf, shawarma, and more. Served with warmth in Falls Church, Virginia.</p>
+      <div class="hero-btns">
+        <a href="https://www.toasttab.com/bawadi-mediterranean-grill/v2/online-order#!/" target="_blank" rel="noopener" class="btn btn-primary">&#x1F6D2; Order Online</a>
+        <a href="menu.html" class="btn btn-secondary">View Menu</a>
+        <a href="catering.html" class="btn btn-gold">Book Catering</a>
+      </div>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <!-- Palestinian flag strip -->
+  <div class="flag-banner">
+    <div class="fb-tri"></div>
+    <div class="fb-black"></div>
+    <div class="fb-white"></div>
+    <div class="fb-green"></div>
+  </div>
+
+  <!-- ═══ HOURS STRIP ═══ -->
+  <div class="hours-strip">
+    <div class="container">
+      <div class="hours-strip-inner">
+        <span>&#x1F550; <strong>Open Today</strong></span>
+        <span class="sep">|</span>
+        <span>Sun–Thu: <strong>11am – 12am</strong></span>
+        <span class="sep">|</span>
+        <span>Fri–Sat: <strong>11am – 1am</strong></span>
+        <span class="sep">|</span>
+        <span><a href="tel:7038451600" style="color:var(--white);font-weight:600;">&#x260E; (703) 845-1600</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ ORDER STRIP ═══ -->
+  <div class="order-strip">
+    <div class="container">
+      <div class="order-strip-inner">
+        <span class="order-strip-text">Order online for <strong>pickup or delivery</strong> — fast, fresh, fully Halal</span>
+        <a href="https://www.toasttab.com/bawadi-mediterranean-grill/v2/online-order#!/" target="_blank" rel="noopener" class="btn btn-primary">Order Pickup</a>
+        <a href="https://www.toasttab.com/bawadi-mediterranean-grill/v2/online-order#!/" target="_blank" rel="noopener" class="btn btn-green">Bawadi Delivery</a>
+        <a href="https://www.halal.delivery/order/restaurant/bawadi-mediterranean-grill--menu/3" target="_blank" rel="noopener" class="btn btn-gold">Halal Delivery</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="section about-section">
+    <div class="container">
+      <div class="grid-2">
+        <div class="anim">
+          <div class="about-img-wrap aspect-4-3">
+            <img class="img-cover" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=80" alt="Bawadi restaurant interior — warm dining room">
+          </div>
+        </div>
+        <div class="anim anim-delay-2">
+          <span class="section-label">Our Story</span>
+          <h2>A Taste of Home, <em style="font-style:italic">Right Here in Virginia</em></h2>
+          <div class="divider"></div>
+          <p>Since 2018, Bawadi Mediterranean Grill has brought the authentic flavors of the Mediterranean and Palestinian tradition to Falls Church. Every dish is prepared from family recipes handed down through generations — from our smoky kabobs and creamy hummus to the rich, slow-cooked Mansaf and crispy falafel.</p>
+          <p style="margin-top:1rem;">We're proud to be one of the leading halal Mediterranean restaurants in Northern Virginia, serving our community with honesty, hospitality, and food showered with love.</p>
+          <div class="about-badges">
+            <span class="badge badge-green">&#x2714; 100% Halal Certified</span>
+            <span class="badge badge-red">&#x1F4C5; Open Since 2018</span>
+            <span class="badge badge-gold">&#x1F376; Hookah Lounge</span>
+          </div>
+          <a href="about.html" class="btn btn-outline">Our Full Story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Keffiyeh band divider -->
+  <div class="keffiyeh-band"></div>
+
+  <!-- ═══ FOOD GALLERY ═══ -->
+  <section class="section gallery-section">
+    <div class="container">
+      <div class="text-center anim" style="margin-bottom:2.5rem;">
+        <span class="section-label">From Our Kitchen</span>
+        <h2>Fresh, Authentic, <em style="font-style:italic">Every Day</em></h2>
+        <div class="divider center"></div>
+      </div>
+      <div class="gallery-grid anim anim-delay-1">
+        <div class="g-main">
+          <img class="img-cover" src="https://images.unsplash.com/photo-1544025162-d76594f71c88?w=800&q=80" alt="Mixed grill platter">
+        </div>
+        <div class="g-sm">
+          <img class="img-cover" src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=700&q=80" alt="Hummus and pita">
+        </div>
+        <div class="g-sm">
+          <img class="img-cover" src="https://images.unsplash.com/photo-1598515213692-3caef16aacc0?w=700&q=80" alt="Shawarma sandwich">
+        </div>
+        <div class="g-sm">
+          <img class="img-cover" src="https://images.unsplash.com/photo-1615361200141-f45040f367be?w=700&q=80" alt="Falafel plate">
+        </div>
+        <div class="g-sm">
+          <img class="img-cover" src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=700&q=80" alt="Lamb kabob">
+        </div>
+      </div>
+      <div class="text-center" style="margin-top:2.5rem;">
+        <a href="menu.html" class="btn btn-outline">View Full Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MENU PREVIEW ═══ -->
+  <section class="section menu-preview">
+    <div class="container">
+      <div class="text-center anim" style="margin-bottom:3rem;">
+        <span class="section-label">Popular Dishes</span>
+        <h2 style="color:var(--white);">Crowd <em style="font-style:italic;color:var(--gold-lt);">Favorites</em></h2>
+        <div class="divider center"></div>
+        <p style="color:rgba(255,255,255,.55);">A small taste of what's waiting for you</p>
+      </div>
+      <div class="menu-preview-grid">
+        <div class="menu-item-card anim">
+          <div>
+            <div class="menu-item-name">Large Family Mixed Grill</div>
+            <div class="menu-item-desc">Kufta kabob, chicken kabob, shawarma, falafel & grape leaves on rice. Serves 4–5.</div>
+          </div>
+          <div class="menu-item-price">$109.95</div>
+        </div>
+        <div class="menu-item-card anim anim-delay-1">
+          <div>
+            <div class="menu-item-name">Mansaf (Lamb)</div>
+            <div class="menu-item-desc">Rice, shrak bread, jameed and mansaf soup, topped with tender lamb. A Palestinian classic.</div>
+          </div>
+          <div class="menu-item-price">$29.99</div>
+        </div>
+        <div class="menu-item-card anim anim-delay-2">
+          <div>
+            <div class="menu-item-name">Bronzini Mediterranean Sea Bass</div>
+            <div class="menu-item-desc">Marinated whole fish with lemon and oil. Served with fries, rice & tahini sauce.</div>
+          </div>
+          <div class="menu-item-price">$35.99</div>
+        </div>
+        <div class="menu-item-card anim anim-delay-3">
+          <div>
+            <div class="menu-item-name">Lamb Shank</div>
+            <div class="menu-item-desc">Marinated lamb shank on a bed of rice, served with warm bread, house salad & side.</div>
+          </div>
+          <div class="menu-item-price">$24.95</div>
+        </div>
+        <div class="menu-item-card anim">
+          <div>
+            <div class="menu-item-name">Bawadi Seafood Platter</div>
+            <div class="menu-item-desc">Grilled salmon and jumbo shrimp, marinated with lemon, garlic and oil, with tahini.</div>
+          </div>
+          <div class="menu-item-price">$29.95</div>
+        </div>
+        <div class="menu-item-card anim anim-delay-1">
+          <div>
+            <div class="menu-item-name">Palestinian Musakhan</div>
+            <div class="menu-item-desc">Spiced chicken with sumac onions on taboun bread — a beloved Palestinian staple.</div>
+          </div>
+          <div class="menu-item-price">$28.99</div>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top:3rem;">
+        <a href="menu.html" class="btn btn-primary">See Full Menu</a>
+        <a href="https://www.toasttab.com/bawadi-mediterranean-grill/v2/online-order#!/" target="_blank" rel="noopener" class="btn btn-secondary" style="margin-left:1rem;">Order Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BUFFET + CATERING TEASERS ═══ -->
+  <section class="section" style="background:var(--cream-dk);">
+    <div class="container">
+      <div class="text-center anim" style="margin-bottom:2.5rem;">
+        <span class="section-label">Dining Experiences</span>
+        <h2>More Ways to Enjoy <em style="font-style:italic">Bawadi</em></h2>
+        <div class="divider center"></div>
+      </div>
+      <div class="grid-2" style="align-items:stretch;">
+        <div class="feature-card anim">
+          <div class="feature-card-bg" style="background-image:url('https://images.unsplash.com/photo-1555244162-803834f70033?w=900&q=80');"></div>
+          <div class="feature-card-overlay"></div>
+          <div class="feature-card-body">
+            <span class="section-label">Weekend Special</span>
+            <h3>Lunch & Dinner Buffet</h3>
+            <p>A luxurious Arabic buffet featuring dozens of dishes. Lunch daily, dinner on Mon & Thu. Adults $26.99 / Kids $14.99.</p>
+            <a href="buffet.html" class="btn btn-primary">Buffet Details</a>
+          </div>
+        </div>
+        <div class="feature-card anim anim-delay-2">
+          <div class="feature-card-bg" style="background-image:url('https://images.unsplash.com/photo-1530062845289-9109b2c9c868?w=900&q=80');"></div>
+          <div class="feature-card-overlay"></div>
+          <div class="feature-card-body">
+            <span class="section-label">Events & Groups</span>
+            <h3>Catering for All Occasions</h3>
+            <p>Corporate lunches, weddings, Eid gatherings, and family events. We handle everything — you celebrate.</p>
+            <a href="catering.html" class="btn btn-gold">Catering Info</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TRUST BAR ═══ -->
+  <section class="section-sm trust-section">
+    <div class="container">
+      <div class="trust-bar anim">
+        <div class="trust-stat">
+          <div class="trust-stat-num">2018</div>
+          <div class="trust-stat-label">Serving the community</div>
+        </div>
+        <div class="trust-stat">
+          <div class="trust-stat-num">100%</div>
+          <div class="trust-stat-label">Halal certified</div>
+        </div>
+        <div class="trust-stat">
+          <div class="trust-stat-num">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</div>
+          <div class="trust-stat-label" style="font-size:.75rem;">Top rated on Yelp</div>
+        </div>
+        <div class="trust-stat">
+          <div class="trust-stat-num" style="font-size:2.2rem;">Family</div>
+          <div class="trust-stat-label">Friendly atmosphere</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT + MAP ═══ -->
+  <section class="section contact-section">
+    <div class="container">
+      <div class="text-center anim" style="margin-bottom:3rem;">
+        <span class="section-label">Find Us</span>
+        <h2>Come Visit or Get in <em style="font-style:italic">Touch</em></h2>
+        <div class="divider center"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="anim">
+          <h3>Contact Information</h3>
+          <div class="contact-row">
+            <div class="contact-icon">&#x1F4CD;</div>
+            <div>
+              <p><strong>Address</strong></p>
+              <p>6304 Leesburg Pike<br>Falls Church, VA 22044</p>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">&#x260E;</div>
+            <div>
+              <p><strong>Phone</strong></p>
+              <p><a href="tel:7038451600">(703) 845-1600</a></p>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">&#x1F550;</div>
+            <div>
+              <p><strong>Hours</strong></p>
+              <table class="hours-table">
+                <tr><td>Sunday – Thursday</td><td>11:00 AM – 12:00 AM</td></tr>
+                <tr><td>Friday – Saturday</td><td>11:00 AM – 1:00 AM</td></tr>
+                <tr><td colspan="2" style="font-size:.8rem;color:var(--text-muted);padding-top:.5rem;">&#x26A0; Holiday hours may vary — call to confirm</td></tr>
+              </table>
+            </div>
+          </div>
+          <div class="contact-form">
+            <h4 style="margin-bottom:1.25rem;">Send a Message</h4>
+            <div class="form-row">
+              <div class="form-group"><label>Name</label><input type="text" placeholder="Your name"></div>
+              <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+            </div>
+            <div class="form-group"><label>Message</label><textarea placeholder="How can we help you?"></textarea></div>
+            <button class="btn btn-primary" style="width:100%;justify-content:center;">Send Message</button>
+          </div>
+        </div>
+        <div class="anim anim-delay-2">
+          <div class="map-wrap">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.5!2d-77.1545!3d38.8711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b48ed3c85e93%3A0x6686c6f15cc6c83a!2s6304%20Leesburg%20Pike%2C%20Falls%20Church%2C%20VA%2022044!5e0!3m2!1sen!2sus!4v1700000000000"
+              allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              title="Bawadi Mediterranean Grill location">
+            </iframe>
+          </div>
+          <div style="margin-top:1rem;display:flex;gap:.75rem;flex-wrap:wrap;">
+            <a href="https://maps.google.com/?q=6304+Leesburg+Pike,+Falls+Church+VA+22044" target="_blank" rel="noopener" class="btn btn-green" style="flex:1;justify-content:center;">&#x1F5FA; Get Directions</a>
+            <a href="tel:7038451600" class="btn btn-outline" style="flex:1;justify-content:center;">&#x260E; Call Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/layout.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
