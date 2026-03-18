@@ -59,18 +59,40 @@ p { font-size: 1rem; color: var(--text-mid); }
 
 /* ── Tatreez (Palestinian embroidery) stripe accent ── */
 .tatreez-stripe {
-  height: 10px;
-  background: repeating-linear-gradient(90deg,
-    var(--pal-red) 0px, var(--pal-red) 16px,
-    var(--black) 16px, var(--black) 24px,
-    var(--white) 24px, var(--white) 32px,
-    var(--black) 32px, var(--black) 40px,
-    var(--pal-green) 40px, var(--pal-green) 56px,
-    var(--black) 56px, var(--black) 64px,
-    var(--white) 64px, var(--white) 72px,
-    var(--black) 72px, var(--black) 80px,
-    var(--pal-red) 80px, var(--pal-red) 96px
-  );
+  height: 24px;
+  position: relative;
+  background-color: #f5f5f0;
+  background-image:
+    /* Horizontal black lines */
+    repeating-linear-gradient(
+      180deg,
+      transparent 0px, transparent 7px,
+      rgba(0,0,0,.85) 7px, rgba(0,0,0,.85) 9px,
+      transparent 9px, transparent 15px,
+      rgba(0,0,0,.85) 15px, rgba(0,0,0,.85) 17px,
+      transparent 17px, transparent 24px
+    ),
+    /* Vertical lines — keffiyeh grid */
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px, transparent 7px,
+      rgba(0,0,0,.85) 7px, rgba(0,0,0,.85) 9px,
+      transparent 9px, transparent 15px,
+      rgba(0,0,0,.85) 15px, rgba(0,0,0,.85) 17px,
+      transparent 17px, transparent 24px
+    ),
+    /* Green fill in one axis */
+    repeating-linear-gradient(
+      90deg,
+      rgba(0,122,61,.55) 0px, rgba(0,122,61,.55) 8px,
+      transparent 8px, transparent 16px
+    ),
+    /* Red fill in other axis */
+    repeating-linear-gradient(
+      180deg,
+      rgba(206,17,38,.45) 0px, rgba(206,17,38,.45) 8px,
+      transparent 8px, transparent 16px
+    );
 }
 
 /* Keffiyeh CSS pattern (repeating diamond/crosshatch) */
@@ -117,39 +139,34 @@ p { font-size: 1rem; color: var(--text-mid); }
 .halal-badge { display: inline-flex; align-items: center; gap: .45rem; background: var(--pal-green); color: var(--white); font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: .35rem .9rem; border-radius: 999px; }
 
 /* ── NAV ── */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: var(--nav-h); background: rgba(13,13,13,.97); backdrop-filter: blur(14px); display: flex; align-items: center; transition: box-shadow var(--transition); border-bottom: 1px solid rgba(255,255,255,.05); }
-.nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,.5); }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: var(--nav-h); background: var(--white); display: flex; align-items: center; transition: box-shadow var(--transition); border-bottom: 1px solid rgba(0,0,0,.08); }
+.nav.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,.1); }
 .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .nav-logo { display: flex; align-items: center; gap: .7rem; flex-shrink: 0; }
 .nav-logo img { height: 42px; width: auto; }
 .nav-logo-text { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--white); line-height: 1.1; }
 .nav-logo-text span { display: block; font-size: .65rem; font-family: var(--font-body); font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-top: 1px; }
 .nav-links { display: flex; align-items: center; gap: .1rem; }
-.nav-links a { font-size: .78rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.7); padding: .5rem .8rem; border-radius: var(--radius); transition: var(--transition); }
-.nav-links a:hover { color: var(--white); }
-.nav-links a.active { color: var(--gold); }
+.nav-links a { font-size: .78rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: rgba(0,0,0,.6); padding: .5rem .8rem; border-radius: var(--radius); transition: var(--transition); }
+.nav-links a:hover { color: var(--black); }
+.nav-links a.active { color: var(--pal-green); font-weight: 600; }
 .nav-order-btns { display: flex; align-items: center; gap: .4rem; flex-shrink: 0; }
 .nav-order-btns a { font-size: .7rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; padding: .45rem .9rem; border-radius: var(--radius); border: 1.5px solid transparent; transition: var(--transition); }
 .nav-btn-pickup { background: var(--pal-red); color: var(--white); border-color: var(--pal-red); }
 .nav-btn-pickup:hover { background: var(--pal-red-dk); }
-.nav-btn-delivery { background: var(--pal-green); color: var(--white); border-color: var(--pal-green); }
-.nav-btn-delivery:hover { background: var(--pal-green-dk); }
-.nav-btn-halal { background: transparent; color: var(--white); border-color: rgba(255,255,255,.5); }
-.nav-btn-halal:hover { background: rgba(255,255,255,.12); border-color: var(--white); }
+
 .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: .5rem; }
-.nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
+.nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--black); border-radius: 2px; transition: var(--transition); }
 .nav-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; }
 .nav-hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
-.nav-mobile { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--black); z-index: 999; padding: 1.25rem 1.5rem; flex-direction: column; border-top: 1px solid rgba(255,255,255,.07); max-height: calc(100vh - var(--nav-h)); overflow-y: auto; }
+.nav-mobile { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--white); z-index: 999; padding: 1.25rem 1.5rem; flex-direction: column; border-top: 1px solid rgba(0,0,0,.07); max-height: calc(100vh - var(--nav-h)); overflow-y: auto; box-shadow: 0 8px 30px rgba(0,0,0,.1); }
 .nav-mobile.open { display: flex; }
-.nav-mobile a { font-size: .9rem; font-weight: 500; color: rgba(255,255,255,.75); padding: .85rem 0; border-bottom: 1px solid rgba(255,255,255,.06); letter-spacing: .04em; transition: var(--transition); }
-.nav-mobile a:hover { color: var(--gold); }
+.nav-mobile a { font-size: .95rem; font-weight: 500; color: rgba(0,0,0,.7); padding: .85rem 0; border-bottom: 1px solid rgba(0,0,0,.06); letter-spacing: .04em; transition: var(--transition); }
+.nav-mobile a:hover { color: var(--pal-green); }
 .nav-mobile .mobile-order-btns { display: flex; flex-direction: column; gap: .6rem; margin-top: 1.25rem; }
 .nav-mobile .mobile-order-btns a { text-align: center; padding: .85rem; border-radius: var(--radius); font-weight: 600; font-size: .85rem; letter-spacing: .04em; border: none; }
 .mob-btn-pickup { background: var(--pal-red); color: var(--white); }
-.mob-btn-delivery { background: var(--pal-green); color: var(--white); }
-.mob-btn-halal { background: rgba(200,151,26,.15); color: var(--gold-lt); border: 1px solid var(--gold) !important; }
 
 /* ── Page hero (inner pages) ── */
 .page-hero { padding: calc(var(--nav-h) + 4rem) 0 4rem; background: var(--black); position: relative; overflow: hidden; }

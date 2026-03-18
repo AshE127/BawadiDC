@@ -64,17 +64,13 @@
     .flag-banner .fb-tri    { width: 0; height: 0; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 10px solid var(--pal-red); flex-shrink: 0; }
 
     /* Order strip */
-    .order-strip {
       background: var(--walnut); padding: 1.4rem 0;
     }
-    .order-strip-inner {
       display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
       gap: 1rem; text-align: center;
     }
-    .order-strip-text {
       color: rgba(255,255,255,.7); font-size: .88rem; letter-spacing: .04em;
     }
-    .order-strip-text strong { color: var(--white); font-weight: 600; }
 
     /* Hours strip */
     .hours-strip {
@@ -226,12 +222,13 @@
       <div class="hero-halal">
         <span class="halal-badge">&#x2714; 100% Halal</span>
       </div>
-      <h1>Your Home for<br><em>Mediterranean &</em><br><em>Palestinian Cuisine</em></h1>
-      <p class="hero-sub">Authentic flavors passed down through generations — kabobs, mansaf, shawarma, and more. Served with warmth in Falls Church, Virginia.</p>
+      <h1>Your Home for<br><em style="color:var(--pal-red);">Palestinian</em><br><em style="color:var(--pal-green);">Cuisine</em></h1>
+      <p class="hero-sub">Kabobs, mansaf, shawarma, and more — prepared fresh daily. Fully Halal, served with warmth in Falls Church, Virginia.</p>
       <div class="hero-btns">
         <a href="https://order.toasttab.com/online/bawadi-mediterranean-grill#!/" target="_blank" rel="noopener" class="btn btn-primary">&#x1F6D2; Order Online</a>
         <a href="menu.html" class="btn btn-secondary">View Menu</a>
         <a href="catering.html" class="btn btn-green">Book Catering</a>
+        <a href="tel:7038451600" class="btn btn-secondary">&#x260E; Call Us</a>
       </div>
     </div>
     <div class="hero-scroll">Scroll</div>
@@ -260,15 +257,6 @@
     </div>
   </div>
 
-  <!-- ═══ ORDER STRIP ═══ -->
-  <div class="order-strip">
-    <div class="container">
-      <div class="order-strip-inner">
-        <span class="order-strip-text">Order online for <strong>pickup or delivery</strong> — fast, fresh, fully Halal</span>
-        <a href="https://order.toasttab.com/online/bawadi-mediterranean-grill#!/" target="_blank" rel="noopener" class="btn btn-primary">Order Pickup</a>
-        <a href="https://order.toasttab.com/online/bawadi-mediterranean-grill#!/" target="_blank" rel="noopener" class="btn btn-green">Bawadi Delivery</a>
-        <a href="https://order.toasttab.com/online/bawadi-mediterranean-grill#!/" target="_blank" rel="noopener" class="btn btn-green">Halal Delivery</a>
-      </div>
     </div>
   </div>
 
@@ -438,8 +426,8 @@
           <div class="trust-stat-label">Halal certified</div>
         </div>
         <div class="trust-stat">
-          <div class="trust-stat-num">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</div>
-          <div class="trust-stat-label" style="font-size:.75rem;">Top rated on Yelp</div>
+          <div class="trust-stat-num" style="display:flex;align-items:center;gap:.3rem;justify-content:center;">4.5 <span style="color:var(--pal-red);font-size:2rem;">&#x2605;</span></div>
+          <div class="trust-stat-label">On Google Reviews</div>
         </div>
         <div class="trust-stat">
           <div class="trust-stat-num" style="font-size:2.2rem;">Family</div>
