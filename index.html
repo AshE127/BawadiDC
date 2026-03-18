@@ -197,6 +197,36 @@
     .form-group textarea { height: 120px; resize: vertical; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
+
+    /* Keffiyeh pattern text fill */
+    .hero-title-top {
+      font-size: clamp(1.6rem, 3vw, 2.8rem);
+      color: rgba(255,255,255,.7);
+      font-weight: 400;
+      font-style: italic;
+      display: block;
+    }
+    .hero-title-main {
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 700;
+      display: inline-block;
+      background-image:
+        repeating-linear-gradient(45deg,
+          transparent 0px, transparent 4px,
+          rgba(255,255,255,.15) 4px, rgba(255,255,255,.15) 5px,
+          transparent 5px, transparent 9px
+        ),
+        repeating-linear-gradient(-45deg,
+          transparent 0px, transparent 4px,
+          rgba(255,255,255,.15) 4px, rgba(255,255,255,.15) 5px,
+          transparent 5px, transparent 9px
+        ),
+        linear-gradient(135deg, #ffffff 0%, #e8e8e8 30%, #007A3D 50%, #CE1126 75%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 10px 10px, 10px 10px, 100% 100%;
+    }
     @media (max-width: 768px) {
       .gallery-grid { grid-template-columns: 1fr 1fr; }
       .gallery-grid .g-main { grid-column: 1 / -1; grid-row: auto; aspect-ratio: 16/9; }
@@ -219,19 +249,16 @@
     <div class="hero-bg"></div>
     <div class="hero-keffiyeh"></div>
     <div class="hero-content">
-      <div class="hero-halal">
-        <span class="halal-badge">&#x2714; 100% Halal</span>
-      </div>
-      <h1>Your Home for<br><em style="color:var(--pal-red);">Palestinian</em><br><em style="color:var(--pal-green);">Cuisine</em></h1>
+<h1 class="hero-title">
+  <span class="hero-title-top">Your Home for</span><br>
+  <span class="hero-title-main">Palestinian Cuisine</span>
+</h1>
       <p class="hero-sub">Kabobs, mansaf, shawarma, and more — prepared fresh daily. Fully Halal, served with warmth in Falls Church, Virginia.</p>
       <div class="hero-btns">
-        <a href="https://order.toasttab.com/online/bawadi-mediterranean-grill#!/" target="_blank" rel="noopener" class="btn btn-primary">&#x1F6D2; Order Online</a>
-        <a href="menu.html" class="btn btn-secondary">View Menu</a>
-        <a href="catering.html" class="btn btn-green">Book Catering</a>
-        <a href="tel:7038451600" class="btn btn-secondary">&#x260E; Call Us</a>
+        <a href="menu.html" class="btn btn-secondary" style="font-size:1rem;padding:1rem 2.5rem;letter-spacing:.1em;">View Menu</a>
       </div>
     </div>
-    <div class="hero-scroll">Scroll</div>
+    <div class="hero-scroll"></div>
   </section>
 
   <!-- Palestinian flag strip -->
@@ -432,69 +459,6 @@
         <div class="trust-stat">
           <div class="trust-stat-num" style="font-size:2.2rem;">Family</div>
           <div class="trust-stat-label">Friendly atmosphere</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ CONTACT + MAP ═══ -->
-  <section class="section contact-section">
-    <div class="container">
-      <div class="text-center anim" style="margin-bottom:3rem;">
-        <span class="section-label">Find Us</span>
-        <h2>Come Visit or Get in <em style="font-style:italic">Touch</em></h2>
-        <div class="divider center"></div>
-      </div>
-      <div class="contact-grid">
-        <div class="anim">
-          <h3>Contact Information</h3>
-          <div class="contact-row">
-            <div class="contact-icon">&#x1F4CD;</div>
-            <div>
-              <p><strong>Address</strong></p>
-              <p>6304 Leesburg Pike<br>Falls Church, VA 22044</p>
-            </div>
-          </div>
-          <div class="contact-row">
-            <div class="contact-icon">&#x260E;</div>
-            <div>
-              <p><strong>Phone</strong></p>
-              <p><a href="tel:7038451600">(703) 845-1600</a></p>
-            </div>
-          </div>
-          <div class="contact-row">
-            <div class="contact-icon">&#x1F550;</div>
-            <div>
-              <p><strong>Hours</strong></p>
-              <table class="hours-table">
-                <tr><td>Sunday – Thursday</td><td>11:00 AM – 12:00 AM</td></tr>
-                <tr><td>Friday – Saturday</td><td>11:00 AM – 1:00 AM</td></tr>
-                <tr><td colspan="2" style="font-size:.8rem;color:var(--text-muted);padding-top:.5rem;">&#x26A0; Holiday hours may vary — call to confirm</td></tr>
-              </table>
-            </div>
-          </div>
-          <div class="contact-form">
-            <h4 style="margin-bottom:1.25rem;">Send a Message</h4>
-            <div class="form-row">
-              <div class="form-group"><label>Name</label><input type="text" placeholder="Your name"></div>
-              <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
-            </div>
-            <div class="form-group"><label>Message</label><textarea placeholder="How can we help you?"></textarea></div>
-            <button class="btn btn-primary" style="width:100%;justify-content:center;">Send Message</button>
-          </div>
-        </div>
-        <div class="anim anim-delay-2">
-          <div class="map-wrap">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.5!2d-77.1545!3d38.8711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b48ed3c85e93%3A0x6686c6f15cc6c83a!2s6304%20Leesburg%20Pike%2C%20Falls%20Church%2C%20VA%2022044!5e0!3m2!1sen!2sus!4v1700000000000"
-              allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-              title="Bawadi Mediterranean Grill location">
-            </iframe>
-          </div>
-          <div style="margin-top:1rem;display:flex;gap:.75rem;flex-wrap:wrap;">
-            <a href="https://maps.google.com/?q=6304+Leesburg+Pike,+Falls+Church+VA+22044" target="_blank" rel="noopener" class="btn btn-green" style="flex:1;justify-content:center;">&#x1F5FA; Get Directions</a>
-            <a href="tel:7038451600" class="btn btn-outline" style="flex:1;justify-content:center;">&#x260E; Call Now</a>
-          </div>
         </div>
       </div>
     </div>

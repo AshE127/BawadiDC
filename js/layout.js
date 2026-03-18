@@ -14,6 +14,7 @@
       <a href="menu.html">Menu</a>
       <a href="buffet.html">Buffet</a>
       <a href="catering.html">Catering</a>
+      <a href="contact.html">Find Us</a>
     </div>
     <div class="nav-order-btns">
       <a href="https://order.toasttab.com/online/bawadi-mediterranean-grill#!/" target="_blank" rel="noopener" class="nav-btn-pickup">Order Online</a>
@@ -29,6 +30,7 @@
   <a href="menu.html">Menu</a>
   <a href="buffet.html">Buffet</a>
   <a href="catering.html">Catering</a>
+  <a href="contact.html">Find Us</a>
   <div class="mobile-order-btns">
     <a href="https://order.toasttab.com/online/bawadi-mediterranean-grill#!/" target="_blank" rel="noopener" class="mob-btn-pickup">🛒 Order Online</a>
   </div>
@@ -55,6 +57,7 @@
           <a href="menu.html">Menu</a>
           <a href="buffet.html">Buffet</a>
           <a href="catering.html">Catering</a>
+          <a href="contact.html">Find Us</a>
         </div>
       </div>
       <div>

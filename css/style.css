@@ -59,40 +59,31 @@ p { font-size: 1rem; color: var(--text-mid); }
 
 /* ── Tatreez (Palestinian embroidery) stripe accent ── */
 .tatreez-stripe {
-  height: 24px;
-  position: relative;
-  background-color: #f5f5f0;
+  height: 32px;
+  background-color: #ffffff;
   background-image:
-    /* Horizontal black lines */
+    /* 45-degree diagonal lines going one way */
     repeating-linear-gradient(
-      180deg,
-      transparent 0px, transparent 7px,
-      rgba(0,0,0,.85) 7px, rgba(0,0,0,.85) 9px,
-      transparent 9px, transparent 15px,
-      rgba(0,0,0,.85) 15px, rgba(0,0,0,.85) 17px,
-      transparent 17px, transparent 24px
+      45deg,
+      transparent 0px,
+      transparent 5px,
+      rgba(0,0,0,.9) 5px,
+      rgba(0,0,0,.9) 7px,
+      transparent 7px,
+      transparent 12px
     ),
-    /* Vertical lines — keffiyeh grid */
+    /* 45-degree diagonal lines going the other way — creates diamond fishnet */
     repeating-linear-gradient(
-      90deg,
-      transparent 0px, transparent 7px,
-      rgba(0,0,0,.85) 7px, rgba(0,0,0,.85) 9px,
-      transparent 9px, transparent 15px,
-      rgba(0,0,0,.85) 15px, rgba(0,0,0,.85) 17px,
-      transparent 17px, transparent 24px
-    ),
-    /* Green fill in one axis */
-    repeating-linear-gradient(
-      90deg,
-      rgba(0,122,61,.55) 0px, rgba(0,122,61,.55) 8px,
-      transparent 8px, transparent 16px
-    ),
-    /* Red fill in other axis */
-    repeating-linear-gradient(
-      180deg,
-      rgba(206,17,38,.45) 0px, rgba(206,17,38,.45) 8px,
-      transparent 8px, transparent 16px
+      -45deg,
+      transparent 0px,
+      transparent 5px,
+      rgba(0,0,0,.9) 5px,
+      rgba(0,0,0,.9) 7px,
+      transparent 7px,
+      transparent 12px
     );
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
 }
 
 /* Keffiyeh CSS pattern (repeating diamond/crosshatch) */
