@@ -200,11 +200,28 @@
 
     /* Keffiyeh pattern text fill */
     .hero-title-top {
-      font-size: clamp(1.6rem, 3vw, 2.8rem);
-      color: rgba(255,255,255,.7);
-      font-weight: 400;
-      font-style: italic;
+      /* Big, bold, same size as before — keffiyeh diamond pattern fills the white letters */
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 700;
       display: block;
+      line-height: 1.1;
+      /* Keffiyeh: white base with black diamond grid overlaid */
+      background-image:
+        repeating-linear-gradient(45deg,
+          transparent 0px, transparent 5px,
+          rgba(0,0,0,.55) 5px, rgba(0,0,0,.55) 7px,
+          transparent 7px, transparent 12px
+        ),
+        repeating-linear-gradient(-45deg,
+          transparent 0px, transparent 5px,
+          rgba(0,0,0,.55) 5px, rgba(0,0,0,.55) 7px,
+          transparent 7px, transparent 12px
+        ),
+        linear-gradient(180deg, #ffffff 0%, #e0e0e0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 12px 12px, 12px 12px, 100% 100%;
     }
     .hero-title-main {
       font-size: clamp(3rem, 7vw, 6rem);
