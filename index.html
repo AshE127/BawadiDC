@@ -70,15 +70,19 @@
 
     /* Hours strip */
     .hours-strip {
-      background: var(--pal-green); padding: .75rem 0;
+      background: var(--white);
+      border-top: 3px solid var(--pal-green);
+      border-bottom: 3px solid var(--pal-red);
+      padding: .85rem 0;
     }
     .hours-strip-inner {
       display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
       gap: 1.5rem;
     }
-    .hours-strip span { color: rgba(255,255,255,.85); font-size: .82rem; letter-spacing: .04em; }
-    .hours-strip strong { color: var(--white); }
-    .hours-strip .sep { color: rgba(255,255,255,.3); }
+    .hours-strip span { color: var(--text-dark); font-size: .85rem; letter-spacing: .04em; }
+    .hours-strip strong { color: var(--pal-green); font-weight: 700; }
+    .hours-strip .sep { color: rgba(0,0,0,.2); }
+    .hours-strip a { color: var(--pal-red) !important; font-weight: 700; }
 
     /* About section */
     .about-section { background: var(--cream); }
